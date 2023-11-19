@@ -1,0 +1,297 @@
+header {
+    font-family: "Open Sans", sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 7fr 1fr 1fr;
+    grid-template-rows: 150px;
+    justify-content: space-around;
+    column-gap: 40px;
+    height: 150px;
+}
+
+.imageDiv {
+    align-self: center;
+}
+
+img.logo {
+    width: 301px;
+    height: 109px;
+    margin-left: 15px;
+}
+
+.connectionDiv {
+    align-self: center;
+}
+
+button.connectionButton {
+    width: 200px;
+    height: 70px;
+    background-color: white;
+    border: solid #0B109F;
+    font-size: 21px;
+    color: #0B109F;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+button.connectionButton:hover {
+    width: 220px;
+    height: 75px;
+    background-color: white;
+    border: solid #0B109F;
+    cursor: pointer; 
+    font-size: 21px;
+    color: #0B109F;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.inscriptionDiv {
+    align-self: center;
+}
+
+button.inscriptionButton {
+    width: 200px;
+    height: 70px;
+    background-color: #0B109F;
+    border: none;
+    font-size: 21px;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+button.inscriptionButton:hover {
+    width: 220px;
+    height: 75px;
+    background-color: #0B109F;
+    cursor: pointer; 
+    border: none;
+    font-size: 21px;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+#connexionPopup {
+    display: none;
+}
+
+#connexionPopup.open {
+    display: block;
+}
+
+#popupOverlay1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000007f;
+    z-index: 1;
+}
+
+#popupContent {
+    padding: 24px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    z-index: 99;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.connexionPopupElement {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    margin-top: 18px;
+}
+
+button.connexion {
+    width: 500px;
+    height: 70px;
+    background-color: #0B109F;
+    border: none;
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 25px;
+    cursor:pointer;
+}
+
+
+#inscriptionPopup {
+    display: none;
+}
+
+#inscriptionPopup.open {
+    display: block;
+}
+
+#popupOverlay2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000007f;
+    z-index: 1;
+}
+
+#inscriptionPopupContent {
+    padding: 24px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    z-index: 99;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.inscriptionPopupElement {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    margin-top: 18px;
+}
+
+.inscriptionButton#popup {
+    width: 500px;
+    height: 70px;
+    background-color: #0B109F;
+    border: none;
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 25px;
+}
+
+label {
+    font-size: 20px;
+    color: black;
+}
+
+input {
+    width: 600px;
+    height: 60px;
+    border: solid thin black;
+    border-radius: 10px;
+    
+}
+
+input::placeholder {
+    font-size: 20px;
+    color: #BDBDBD;
+}
+
+a {
+    align-self: center;
+    margin-top: 5px;
+}
+
+a:hover {
+    align-self: center;
+    margin-top: 5px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 100px;
+    border: solid thin;
+    height: 600px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+h1.siteDescription {
+    text-align: center;
+    font-size: 56px;
+    font-weight: 100;
+}
+
+h1.catchPhrase {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 200;
+    color:#0B109F;
+    margin-top: -8px;
+}
+
+button.inscriptionButtonMiddle {
+    width: 200px;
+    height: 70px;
+    background-color: #0B109F;
+    border: none;
+    font-size: 21px;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+button.inscriptionButtonMiddle:hover {
+    width: 220px;
+    height: 75px;
+    background-color: #0B109F;
+    border: none;
+    cursor: pointer;
+    font-size: 21px;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.socialNetworks {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.twitter {
+    width: 40px;
+    height: 40px;
+    margin-right:90px;
+    
+}
+
+.facebook {
+    width: 40px;
+    height: 40px;   
+}
+
+h1.credits {
+    font-size: 19px;
+    text-align: center;
+    margin-top: 30px;
+}

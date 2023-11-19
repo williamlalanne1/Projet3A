@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+.container {
+    display: grid;
+    grid-template-columns: 9fr 1fr ;
+    grid-template-rows: 150px;
+    justify-content: space-around;
+    column-gap: 40px;
+    height: 150px;
+}
+
+.imageDiv {
+    align-self: center;
+}
+
+img.logo {
+    width: 301px;
+    height: 109px;
+    margin-left: 15px;
+}
+
+.menuDiv {
+    align-self: center;
+}
+
+.menu {
+    width: 60px;
+    height: 60px;
+}
+
+.menu:hover {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.menuPopup {
+    visibility: hidden;
+    position: absolute;
+    left: 73.7%;
+    top: 10%;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    box-shadow: 1px 1px 100px 5px #e4eefa;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.elementDiv {
+    width: 350px;
+    height: 70px;
+    margin-bottom: 4px;
+    align-self: center;
+}
+
+.elementDiv:hover {
+    width: 350px;
+    height: 70px;
+    margin-bottom: 4px;
+    align-self: center;
+    background-color: #33b4ff;
+    color: white;
+    cursor:pointer;
+}
+
+.menuElement{
+    margin-bottom: 4px;
+    align-self: center;
+    text-align: center;  
+}
+
+.menuButton{
+    margin-bottom: 4px;
+    align-self: center;
+    text-align: center;  
+}
+
+#deconnexion {
+    align-self: center;
+    width: 240px;
+    height: 60px;
+    background-color: #0B109F;
+    border-radius: 10px;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 8px ;
+}
+
+#deconnexion:hover {
+    align-self: center;
+    width: 240px;
+    height: 60px;
+    background-color: #0B109F;
+    border-radius: 10px;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    color: black;
+    font-size: 40px;
+    text-align: center;
+    margin-top: -10px;
+}
+
+input::placeholder {
+    font-size: 20px;
+    opacity: 0.5;
+  }
+
+.form-container {
+    width: 808px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.formInput#annonceTitle {
+    margin-top: 20px;
+    width: 800px;
+    height: 50px;
+    align-self: center;
+}
+
+.formInput#annonceDescription {
+    margin-top: 50px;
+    width: 800px;
+    height: 300px;
+    align-self: center;
+}
+
+.dateContainer {
+    margin-top: 40px;
+    width: 800px;
+    height: 50px;
+    display:inline;
+    align-content: center;
+}
+
+.date1 {
+    display: inline;
+    width: 320px;
+    align-self: start;
+}
+
+label {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.formInput#beginningDate {
+    width: 180px;
+    height: 40px;
+    align-self: center;
+}
+
+.formInput#endDate {
+    width: 180px;
+    height: 40px;
+    align-self: center;
+}
+
+.date2 {
+    display: inline;
+    width: 300px;
+    margin-left: 160px;
+}
+
+.formInput#city {
+    margin-top: 50px;
+    height: 50px;
+    width: 800px;
+}
+
+.formInput#compensation {
+    margin-top: 50px;
+    height: 50px;
+    width: 800px;
+}
+
+.formInput#fileInput {
+    margin-top: 50px;
+    height: 50px;
+    width: 800px;
+}
+
+input[type=text] {
+    font-size: 20px;
+}
+
+input[type=file] {
+    margin-top: 50px;
+    width: 800px;
+    height:66px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+input[type=file]::file-selector-button {
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #084cdf;
+    width: 200px;
+    height: 50px;
+    
+}
+
+input[type=submit] {
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    background: #0B109F;
+    margin-top: 50px;
+    width: 250px;
+    height: 60px;
+    -webkit-border-radius: 5px;
+    border-radius: 20px;
+    align-self: center;
+    box-shadow: 5px 5px 5px black;
+}
+
+input[type=submit]:hover {
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    background: #14C9AE;
+    margin-top: 50px;
+    width: 250px;
+    height: 60px;
+    -webkit-border-radius: 5px;
+    border-radius: 20px;
+    align-self: center;
+    box-shadow: 3px 3px 3px black;
+}
+
+

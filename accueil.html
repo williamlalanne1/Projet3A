@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="accueil.css" media="screen">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Centrale M'Aide | Accueil</title>
+</head>
+<header>
+    <div class="container">
+        <div class="imageDiv">
+            <img class="logo" src="logo.png">
+        </div>
+        <div class="connectionDiv">
+            <button id="connexionButton" class="connectionButton">Se connecter</button>
+        </div>
+        <div class="inscriptionDiv">
+            <button id="inscriptionButton" class="inscriptionButton">S'inscrire</button>
+        </div>
+    </div>
+
+    <div id="connexionPopup">
+
+        <div id=popupOverlay1></div>
+
+        <div id="popupContent">
+            <div>
+                <h1>Se connecter</h1>
+            </div>
+
+            <div class="connexionPopupElement">
+                <label for="connexionEmail">Email*</label>
+                <input id="connexionEmail" type="text" placeholder="Email">
+            </div>
+
+            <div class="connexionPopupElement">
+                <label for="connexionMdp">Mot de passe*</label>
+                <input id="connexionMdp" type="text" placeholder="Mot de passe">
+            </div>
+
+            <a>Mot de passe oublié ?</a>
+            <button id="connexionButton" class="connexion">Connexion</button>
+            <a id="nouveauCompte">Créer un nouveau compte</a>
+        </div>
+
+    </div>
+
+
+    <div id="inscriptionPopup">
+
+        <div id=popupOverlay2></div>
+
+        <div id="inscriptionPopupContent">
+
+            <div>
+                <h1>S'inscrire</h1>
+            </div>
+
+            <div class="inscriptionPopupElement">
+                <label for="prenom">Prénom*</label>
+                <input id="prenom" type="text" placeholder="Prénom">
+            </div>
+
+            <div class="inscriptionPopupElement">
+                <label for="nom">Nom*</label>
+                <input id="nom" type:="text" placeholder="Nom">
+            </div>
+
+            <div class="inscriptionPopupElement">
+                <label for="email">Email*</label>
+                <input id="email" type="text" placeholder="Email">
+            </div>
+
+            <div class="inscriptionPopupElement">
+                <label for="adresse">Adresse*</label>
+                <input id="adresse" type="text" placeholder="Adresse">
+            </div>
+
+            <div class="inscriptionPopupElement">
+                <label for="photo">Photo de profil</label>
+                <input id="photo" type="file" placeholder="Photo de profil">
+            </div>
+
+            <div class="inscriptionPopupElement">
+                <label for="mdp">Mot de passe*</label>
+                <input id="mdp" type="text" placeholder="Mot de passe">
+            </div>
+
+            <div class="inscriptionPopupElement">
+                <label for="mdpConf">Confirmer le mot de passe*</label>
+                <input id="mdpConf" type="text" placeholder="Mot de passe">
+            </div>
+
+            <button id="popup" class="inscriptionButton">S'inscrire</button>
+            <a id="connectLink">Vous avez déjà un compte ? Connectez-vous</a>
+        </div>
+    </div>
+</header>
+
+<body>
+  <main>
+    <div class="mainContainer">
+        <h1 class="siteDescription"><br>Centrale M'Aide : le site</br>  d'entraide entre Centraliens </h1>
+        <h1 class="catchPhrase">Publiez votre besoin, trouvez un Centralien qui pourra vous aider !</h1>
+        <button id="inscriptionButtonMiddle" class="inscriptionButtonMiddle">S'inscrire</button>
+    </div>
+
+    <div class="socialNetworks">
+        <img class="twitter" src="twitter.png">
+        <img class="facebook" src="facebook.png">
+    </div>  
+
+  <script type="text/javascript" src="accueil.js"></script>
+  </main>
+  
+</body>
+<footer>
+    <h1 class="credits">© 2023 Centrale M'Aide. All rights reserved.</h1>
+</footer>
+</html>
