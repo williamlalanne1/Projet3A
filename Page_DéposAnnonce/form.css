@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+header {
+    font-family: "Open Sans", sans-serif;
+}
+
 .container {
     display: grid;
     grid-template-columns: 9fr 1fr ;
@@ -60,8 +64,8 @@ img.logo {
     height: 70px;
     margin-bottom: 4px;
     align-self: center;
-    background-color: #33b4ff;
-    color: white;
+    background-color: #d5f0ff;
+    color: black;
     cursor:pointer;
 }
 
