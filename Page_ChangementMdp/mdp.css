@@ -5,10 +5,10 @@ header {
 .container {
     display: grid;
     grid-template-columns: 9fr 1fr ;
-    grid-template-rows: 150px;
+    grid-template-rows: 80%;
     justify-content: space-around;
-    column-gap: 40px;
-    height: 150px;
+    column-gap: 4%;
+    height: 20%;
 }
 
 .imageDiv {
@@ -16,8 +16,8 @@ header {
 }
 
 img.logo {
-    width: 301px;
-    height: 109px;
+    width: 20%;
+    height: 10%;
     margin-left: 15px;
 }
 
