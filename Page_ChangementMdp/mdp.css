@@ -46,8 +46,8 @@ img.logo:hover {
 .menuPopup {
     visibility: hidden;
     position: absolute;
-    left: 73.7%;
-    top: 10%;
+    left: 75%;
+    top: 9%;
     z-index: 99;
     display: flex;
     flex-direction: column;
@@ -55,11 +55,12 @@ img.logo:hover {
     box-shadow: 3% 3% 10% 4% #e4eefa;
     border-radius: 4%;
     width: 18%;
+    height: 35%;
 }
 
 .elementDiv {
     width: 100%;
-    height: 7%;
+    height: 20%;
     margin-bottom: 2%;
     align-self: center;
     font-family: "Open Sans", sans-serif;
@@ -67,7 +68,7 @@ img.logo:hover {
 
 .elementDiv:hover {
     width: 90%;
-    height: 7%;
+    height: 20%;
     margin-bottom: 2%;
     align-self: center;
     background-color: #d5f0ff;
@@ -85,14 +86,16 @@ img.logo:hover {
     margin-bottom: 2%;
     align-self: center;
     text-align: center;  
+    width: 80%;
+    height: 14%;
 }
 
 #deconnexion {
     align-self: center;
-    width: 180%;
+    width: 100%;
     height: 100%;
     background-color: #0B109F;
-    border-radius: 4%;
+    border-radius: 10px;
     font-size: 150%;
     color: white;
     margin-bottom: 5%;
@@ -101,10 +104,10 @@ img.logo:hover {
 
 #deconnexion:hover {
     align-self: center;
-    width: 180%;
+    width: 100%;
     height: 100%;
     background-color: #0B109F;
-    border-radius: 30%;
+    border-radius: 10px;
     font-size: 150%;
     color: white;
     margin-bottom: 8px;
@@ -112,74 +115,83 @@ img.logo:hover {
 }
 
 body {
+    height:100%;
+    width: 100%;
     font-family: "Open Sans", sans-serif;
 }
 
 main {
     width:100%;
+    height: 100%;
 }
 
 h1.titre {
-    font-size: 300%;
+    font-size: 250%;
     text-align: center;
+    width:100%;
+    height: 100%;
 }
 
 .mdpContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-self: center;
     margin: auto;
     box-shadow: 0px 7px 30px -10px #5F62AD;
-    width: 34%;
-    height: 100%;
-    padding: 0.5% 0.5%;
+    width: 27%;
+    height:100%;
 }
 
 .mdpInput {
     display: flex;
     flex-direction: column;
-    margin-top: 3%;
-    align-items: flex-start;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    margin-top: 5%;
     width: 100%;
-    height: 100%;
+    height: 500%;
 }
 
 label {
-    font-size: 25px;
+    font-size: 140%;
+    align-self: flex-start;
+    margin-left: 4%;
 }
 
 input[type=text]#email {
     width: 90%;
-    height: 130%;
+    height: 3vh;
     border-radius: 2%;
 }
 
 input[type=text]#mdp {
     width: 90%;
-    height: 40%;
+    height: 3vh;
     border-radius: 2%;
 }
 
 input[type=text]#mdpConfirmation {
     width: 90%;
-    height: 40%;
+    height: 3vh;
     border-radius: 2%;
 }
 
 input::placeholder {
-    font-size: 20px;
+    font-size: 150%;
 }
 
 #mdpButton {
     width: 80%;
-    height: 500%;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 20px;
+    height: 46px;
+    font-size: 120%;
     background-color: #0B109F;
+    margin-top: 6%;
+    margin-bottom: 4%;
     border-radius: 7px;
     color: white;
+    align-self: center;
 }
 
 footer {
