@@ -1,5 +1,6 @@
 const menuLogo = document.getElementById("menuLogo");
 const popupMenu = document.getElementById("popupMenu");
+const cmLogo = document.getElementById("logo");
 var isOpen = false;
 
 menuLogo.addEventListener("click", () => {
@@ -14,4 +15,8 @@ menuLogo.addEventListener("click", () => {
         isOpen = false;
     }
 
+});
+
+cmLogo.addEventListener("click", () => {
+    window.location.href = "../Page_Accueil/accueil.html";
 });

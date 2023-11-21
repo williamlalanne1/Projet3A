@@ -4,9 +4,10 @@ header {
 
 .container {
     display: grid;
-    grid-template-columns: 9fr 1fr ;
+    grid-template-columns: 3fr 6fr 1fr ;
     grid-template-rows: 150px;
     justify-content: space-around;
+    align-items: center;
     column-gap: 40px;
     height: 150px;
 }
@@ -21,11 +22,15 @@ img.logo {
     margin-left: 15px;
 }
 
-img.logo:hover {
-    width: 301px;
-    height: 109px;
-    margin-left: 15px;
-    cursor: pointer;
+.inputDiv {
+    align-self: center;
+}
+
+#searchInput {
+    width: 900px;
+    height: 50px;
+    align-self: center;
+    border-radius: 10px;
 }
 
 .menuDiv {
@@ -114,56 +119,30 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
-.titre {
-    font-size: 55px;
-    text-align: center;
+main {
+    margin-top: 60px;
 }
 
-.mdpContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    box-shadow: 0px 7px 30px -10px #5F62AD;
-    width: 600px;
-    padding: 16px 24px;
-}
-
-.mdpInput {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-}
-
-label {
-    font-size: 25px;
-}
-
-input[type=text] {
-    width: 600px;
-    height: 50px;
-    border-radius: 7px;
-}
-
-input::placeholder {
-    font-size: 20px;
-}
-
-#mdpButton {
-    width: 600px;
-    height: 55px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 20px;
+#addAnnonces {
     background-color: #0B109F;
-    border-radius: 7px;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 60px;
+}
+
+#addAnnonceImg {
+    width: 45px;
+    height: 45px;
     color: white;
 }
 
-footer {
-    font-family: "Open Sans", sans-serif;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 300px;
+.addAnnonceButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 330px;
 }
+
+

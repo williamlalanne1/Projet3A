@@ -10,6 +10,7 @@ const popupOverlay2 = document.getElementById('popupOverlay2');
 
 const nouveauCompteLink = document.getElementById('nouveauCompte');
 const connectLink = document.getElementById("connectLink");
+const mdpOublieLink = document.getElementById("mdpOublié");
 
 inscriptionButton.addEventListener("click", () =>{
     console.log("ok");
@@ -42,6 +43,10 @@ connectLink.addEventListener("click", () => {
     connexionPopup.classList.add('open');
     inscriptionPopup.classList.remove('open');
 })
+
+mdpOublieLink.addEventListener("click", () => {
+    window.location.href = "../Page_ChangementMdp/mdp.html";
+});
 
 
 
