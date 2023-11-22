@@ -2,15 +2,17 @@
 
 header {
     font-family: "Open Sans", sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
 .container {
     display: grid;
     grid-template-columns: 9fr 1fr ;
-    grid-template-rows: 150px;
+    grid-template-rows: 80%;
     justify-content: space-around;
-    column-gap: 40px;
-    height: 150px;
+    column-gap: 10%;
+    height: 100%;
 }
 
 .imageDiv {
@@ -18,9 +20,9 @@ header {
 }
 
 img.logo {
-    width: 301px;
-    height: 109px;
-    margin-left: 15px;
+    width: 20%;
+    height: 20%;
+    margin-left: 5%;
 }
 
 .menuDiv {
@@ -28,41 +30,43 @@ img.logo {
 }
 
 .menu {
-    width: 60px;
-    height: 60px;
+    width: 35%;
+    height: 35%;
 }
 
 .menu:hover {
-    width: 70px;
-    height: 70px;
+    width: 37%;
+    height: 37%;
     cursor: pointer;
 }
 
 .menuPopup {
     visibility: hidden;
     position: absolute;
-    left: 73.7%;
-    top: 10%;
+    left: 76%;
+    top: 9%;
     z-index: 99;
     display: flex;
     flex-direction: column;
     border: solid thin black;
     box-shadow: 1px 1px 100px 5px #e4eefa;
     border-radius: 10px;
-    width: 400px;
+    width: 18%;
+    height: 35%;
 }
 
 .elementDiv {
-    width: 350px;
-    height: 70px;
-    margin-bottom: 4px;
+    width: 85%;
+    height: 35%;
+    margin-bottom: 2%;
     align-self: center;
+    font-size: 65%;
 }
 
 .elementDiv:hover {
-    width: 350px;
-    height: 70px;
-    margin-bottom: 4px;
+    width: 85%;
+    height: 35%;
+    margin-bottom: 2%;
     align-self: center;
     background-color: #d5f0ff;
     color: black;
@@ -70,37 +74,37 @@ img.logo {
 }
 
 .menuElement{
-    margin-bottom: 4px;
+    margin-top: 4%;
     align-self: center;
     text-align: center;  
 }
 
 .menuButton{
-    margin-bottom: 4px;
+    margin-bottom: 0%;
+    width: 100%;
+    height: 100%;
     align-self: center;
     text-align: center;  
 }
 
 #deconnexion {
     align-self: center;
-    width: 240px;
-    height: 60px;
+    width: 80%;
+    height: 75%;
     background-color: #0B109F;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 100%;
     color: white;
-    margin-bottom: 8px ;
 }
 
 #deconnexion:hover {
     align-self: center;
-    width: 240px;
-    height: 60px;
+    width: 80%;
+    height: 75%;
     background-color: #0B109F;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 100%;
     color: white;
-    margin-bottom: 8px;
     cursor: pointer;
 }
 
@@ -116,7 +120,8 @@ main {
 }
 
 h1.titre {
-    font-size: 250%;
+    margin-top: 7%;
+    font-size: 150%;
     text-align: center;
     width:100%;
     height: 100%;
@@ -129,8 +134,9 @@ h1.titre {
     align-self: center;
     margin: auto;
     box-shadow: 0px 7px 30px -10px #5F62AD;
-    width: 39%;
-    height:100%;
+    width: 30%;
+    height: 100%;
+    margin-top: 2%;
 }
 
 .mdpInput {
@@ -145,7 +151,7 @@ h1.titre {
 }
 
 label {
-    font-size: 140%;
+    font-size: 100%;
     align-self: flex-start;
     margin-left: 4%;
 }
@@ -169,7 +175,7 @@ input[type=text]#mdpConfirmation {
 }
 
 input::placeholder {
-    font-size: 150%;
+    font-size: 100%;
 }
 
 #mdpButton {
