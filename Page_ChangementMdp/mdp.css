@@ -52,12 +52,12 @@ img.logo {
     box-shadow: 1px 1px 100px 5px #e4eefa;
     border-radius: 10px;
     width: 18%;
-    height: 35%;
+    height: 45%;
 }
 
 .elementDiv {
     width: 85%;
-    height: 35%;
+    height: 20%;
     margin-bottom: 2%;
     align-self: center;
     font-size: 65%;
@@ -65,7 +65,7 @@ img.logo {
 
 .elementDiv:hover {
     width: 85%;
-    height: 35%;
+    height: 20%;
     margin-bottom: 2%;
     align-self: center;
     background-color: #d5f0ff;
@@ -80,9 +80,8 @@ img.logo {
 }
 
 .menuButton{
-    margin-bottom: 0%;
     width: 100%;
-    height: 100%;
+    height: 50%;
     align-self: center;
     text-align: center;  
 }
@@ -90,7 +89,7 @@ img.logo {
 #deconnexion {
     align-self: center;
     width: 80%;
-    height: 75%;
+    height: 50%;
     background-color: #0B109F;
     border-radius: 10px;
     font-size: 100%;
@@ -100,7 +99,7 @@ img.logo {
 #deconnexion:hover {
     align-self: center;
     width: 80%;
-    height: 75%;
+    height: 50%;
     background-color: #0B109F;
     border-radius: 10px;
     font-size: 100%;
