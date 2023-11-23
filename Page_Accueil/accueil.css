@@ -1,24 +1,26 @@
+@charset "UTF-8";
+
 header {
     font-family: "Open Sans", sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 9fr 1fr ;
-    grid-template-rows: 80%;
+    grid-template-columns: 8fr 1fr 1fr;
     justify-content: space-around;
-    column-gap: 4%;
-    height: 20%;
+    align-items: center;
+    column-gap: 5%;
+    height: 100%;
 }
 
-.imageDiv {
-    align-self: center;
-}
 
 img.logo {
-    width: 18%;
-    height: 9%;
+    width: 20%;
+    height: 20%;
     margin-left: 5%;
+    align-self: center;
 }
 
 img.logo:hover {
@@ -30,56 +32,63 @@ img.logo:hover {
 
 .connectionDiv {
     align-self: center;
+    width: 100%;
+    height: 100%;
 }
 
 button.connectionButton {
-    width: 200px;
-    height: 70px;
+    margin-top: 12%;
+    width: 100%;
+    height: 63%;
     background-color: white;
     border: solid #0B109F;
-    font-size: 21px;
+    font-size: 90%;
     color: #0B109F;
     font-weight: 600;
     border-radius: 10px;
 }
 
 button.connectionButton:hover {
-    width: 220px;
-    height: 75px;
+    margin-top: 12%;
+    width: 100%;
+    height: 63%;
     background-color: white;
     border: solid #0B109F;
     cursor: pointer; 
-    font-size: 21px;
+    font-size: 90%;
     color: #0B109F;
     font-weight: 600;
     border-radius: 10px;
 }
 
 .inscriptionDiv {
-    align-self: center;
+    width: 100%;
+    height: 100%;
 }
 
 button.inscriptionButton {
-    width: 200px;
-    height: 70px;
+    margin-top: 12%;
+    width: 100%;
+    height: 63%;
     background-color: #0B109F;
     border: none;
-    font-size: 21px;
+    font-size: 90%;
     color: white;
     font-weight: 600;
     border-radius: 10px;
 }
 
 button.inscriptionButton:hover {
-    width: 220px;
-    height: 75px;
+    margin-top: 12%;
+    width: 100%;
+    height: 63%;
     background-color: #0B109F;
-    cursor: pointer; 
     border: none;
-    font-size: 21px;
+    font-size: 90%;
     color: white;
     font-weight: 600;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #connexionPopup {
@@ -101,7 +110,9 @@ button.inscriptionButton:hover {
 }
 
 #popupContent {
-    padding: 24px;
+    width: 33%;
+    height: 45%;
+    padding: 2%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -114,26 +125,86 @@ button.inscriptionButton:hover {
     border-radius: 10px;
 }
 
+
+h1 {
+    font-size: 150%;
+    margin-top: 0%;
+}
+
 .connexionPopupElement {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    align-self: center;
-    margin-top: 18px;
+    margin-top: 4%;
+    width: 100%;
+    height: 20%;
 }
 
 button.connexion {
-    width: 500px;
-    height: 70px;
+    width: 100%;
+    height: 12%;
     background-color: #0B109F;
     border: none;
-    font-size: 24px;
+    font-size: 100%;
     color: white;
     font-weight: 600;
-    border-radius: 10px;
     align-self: center;
-    margin-top: 25px;
+    margin-top: 5%;
     cursor:pointer;
+}
+
+#connexionEmail {
+    width: 100%;
+    border-radius: 0%;
+    border: solid thin #BDBDBD;
+    height: 58%;
+}
+
+
+#connexionEmail::placeholder{
+    font-size: 100%;
+    color: #BDBDBD;
+}
+
+#connexionMdp {
+    width: 100%;
+    border-radius: 0%;
+    border: solid thin #BDBDBD;
+    height: 58%;
+}
+
+
+#connexionMdp::placeholder{
+    font-size: 100%;
+    color: #BDBDBD;
+}
+
+a#mdpOublie {
+    align-self: flex-end;
+    margin-top: 5px;
+    color: #091747;
+}
+
+
+a#mdpOublie:hover {
+    align-self: flex-end;
+    margin-top: 5px;
+    color: #2600FE;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a#nouveauCompte {
+    margin-top: 19px;
+    color: #091747;
+    align-self: center;
+}
+
+a#nouveauCompte:hover {
+    margin-top: 19px;
+    color: #2600FE;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 
@@ -156,6 +227,8 @@ button.connexion {
 }
 
 #inscriptionPopupContent {
+    height: 90%;
+    width: 30%;
     padding: 24px;
     position: fixed;
     top: 50%;
@@ -173,50 +246,46 @@ button.connexion {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    align-self: center;
-    margin-top: 18px;
+    margin-top: 18px; 
+    width: 100%;
+    height: 30%;
+}
+
+.inscriptionInput {
+    border: solid thin #BDBDBD;
+    width: 100%;
+    height: 100%;
+}
+
+.inscriptionLabel {
+    font-size: 90%;
 }
 
 .inscriptionButton#popup {
-    width: 500px;
-    height: 70px;
+    width: 100%;
+    height: 20%;
     background-color: #0B109F;
     border: none;
-    font-size: 24px;
+    font-size: 100%;
     color: white;
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 10px;
     align-self: center;
     margin-top: 25px;
 }
 
-label {
-    font-size: 20px;
-    color: black;
-}
-
-input {
-    width: 600px;
-    height: 60px;
-    border: solid thin black;
-    border-radius: 10px;
-    
-}
-
-input::placeholder {
-    font-size: 20px;
-    color: #BDBDBD;
-}
 
 a {
     align-self: center;
     margin-top: 5px;
+    font-size: 70%;
 }
 
 a:hover {
     align-self: center;
     margin-top: 5px;
     cursor: pointer;
+    color: #2600FE;
     text-decoration: underline;
 }
 
@@ -231,8 +300,8 @@ body {
     align-items: center;
     margin-top: 100px;
     border: solid thin;
-    height: 600px;
-    width: 1000px;
+    height: 30%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
@@ -240,13 +309,13 @@ body {
 
 h1.siteDescription {
     text-align: center;
-    font-size: 56px;
+    font-size: 200%;
     font-weight: 100;
 }
 
 h1.catchPhrase {
     text-align: center;
-    font-size: 25px;
+    font-size: 100%;
     font-weight: 200;
     color:#0B109F;
     margin-top: -8px;
@@ -257,24 +326,26 @@ button.inscriptionButtonMiddle {
     height: 70px;
     background-color: #0B109F;
     border: none;
-    font-size: 21px;
+    font-size: 120%;
     color: white;
     font-weight: 600;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 5%;
+    margin-bottom: 4%;
 }
 
 button.inscriptionButtonMiddle:hover {
-    width: 220px;
-    height: 75px;
+    width: 200px;
+    height: 70px;
     background-color: #0B109F;
     border: none;
-    cursor: pointer;
-    font-size: 21px;
+    font-size: 120%;
     color: white;
     font-weight: 600;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 5%;
+    cursor: pointer;
+    margin-bottom: 4%;
 }
 
 .socialNetworks {
@@ -288,8 +359,7 @@ button.inscriptionButtonMiddle:hover {
 .twitter {
     width: 40px;
     height: 40px;
-    margin-right:90px;
-    
+    margin-right:90px;  
 }
 
 .facebook {

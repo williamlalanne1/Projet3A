@@ -25,6 +25,13 @@ img.logo {
     margin-left: 5%;
 }
 
+img.logo:hover {
+    width: 20%;
+    height: 10%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
 .menuDiv {
     align-self: center;
 }
@@ -52,7 +59,6 @@ img.logo {
     box-shadow: 1px 1px 100px 5px #e4eefa;
     border-radius: 10px;
     width: 18%;
-    
 }
 
 .elementDiv {
@@ -120,10 +126,10 @@ main {
 }
 
 h1.titre {
-    margin-top: 7%;
+    margin-top: 4%;
     font-size: 150%;
     text-align: center;
-    width:100%;
+    width: 100%;
     height: 100%;
 }
 
@@ -154,23 +160,27 @@ label {
     font-size: 100%;
     align-self: flex-start;
     margin-left: 4%;
+    margin-bottom: 2%;
 }
 
 input[type=text]#email {
     width: 90%;
     height: 3.5vh;
+    border: solid thin black;
     border-radius: 2%;
 }
 
 input[type=text]#mdp {
     width: 90%;
     height: 3.5vh;
+    border: solid thin black;
     border-radius: 2%;
 }
 
 input[type=text]#mdpConfirmation {
     width: 90%;
     height: 3.5vh;
+    border: solid thin black;
     border-radius: 2%;
 }
 
@@ -184,7 +194,7 @@ input::placeholder {
     font-size: 120%;
     background-color: #0B109F;
     margin-top: 6%;
-    margin-bottom: 4%;
+    margin-bottom: 6%;
     border-radius: 7px;
     color: white;
     align-self: center;
