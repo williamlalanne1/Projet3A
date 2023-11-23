@@ -8,19 +8,21 @@ header {
 
 .container {
     display: grid;
-    grid-template-columns: 8fr 1fr 1fr;
+    grid-template-columns: 10fr 2fr 2fr;
     justify-content: space-around;
     align-items: center;
-    column-gap: 5%;
+    column-gap: 2%;
     height: 100%;
 }
 
+.imageDiv {
+    width: 100%;
+}
 
 img.logo {
     width: 20%;
     height: 20%;
     margin-left: 5%;
-    align-self: center;
 }
 
 img.logo:hover {
@@ -31,14 +33,13 @@ img.logo:hover {
 }
 
 .connectionDiv {
-    align-self: center;
     width: 100%;
     height: 100%;
 }
 
 button.connectionButton {
-    margin-top: 12%;
-    width: 100%;
+    margin-top: 7.5%;
+    width: 80%;
     height: 63%;
     background-color: white;
     border: solid #0B109F;
@@ -49,8 +50,8 @@ button.connectionButton {
 }
 
 button.connectionButton:hover {
-    margin-top: 12%;
-    width: 100%;
+    margin-top: 7.5%;
+    width: 80%;
     height: 63%;
     background-color: white;
     border: solid #0B109F;
@@ -62,13 +63,14 @@ button.connectionButton:hover {
 }
 
 .inscriptionDiv {
+    align-items: center;
     width: 100%;
     height: 100%;
 }
 
 button.inscriptionButton {
-    margin-top: 12%;
-    width: 100%;
+    margin-top: 7.5%;
+    width: 80%;
     height: 63%;
     background-color: #0B109F;
     border: none;
@@ -79,8 +81,8 @@ button.inscriptionButton {
 }
 
 button.inscriptionButton:hover {
-    margin-top: 12%;
-    width: 100%;
+    margin-top: 7.5%;
+    width: 80%;
     height: 63%;
     background-color: #0B109F;
     border: none;
@@ -229,7 +231,10 @@ a#nouveauCompte:hover {
 #inscriptionPopupContent {
     height: 90%;
     width: 30%;
-    padding: 24px;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 31px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -278,7 +283,7 @@ a#nouveauCompte:hover {
 a {
     align-self: center;
     margin-top: 5px;
-    font-size: 70%;
+    font-size: 90%;
 }
 
 a:hover {
@@ -291,6 +296,8 @@ a:hover {
 
 body {
     font-family: "Open Sans", sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
 .mainContainer {
@@ -300,7 +307,7 @@ body {
     align-items: center;
     margin-top: 100px;
     border: solid thin;
-    height: 35%;
+    height: 50%;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
