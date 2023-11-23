@@ -10,7 +10,7 @@ const popupOverlay2 = document.getElementById('popupOverlay2');
 
 const nouveauCompteLink = document.getElementById('nouveauCompte');
 const connectLink = document.getElementById("connectLink");
-const mdpOublieLink = document.getElementById("mdpOublié");
+const mdpOublieLink = document.getElementById("mdpOublie");
 
 inscriptionButton.addEventListener("click", () =>{
     console.log("ok");
