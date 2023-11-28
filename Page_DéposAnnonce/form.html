@@ -5,66 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="form.css" media="screen">
+  <link rel="stylesheet" href="../style.css" media="screen">
   <title>Form</title>
 </head>
+
+
 <header>
   <div class="container">
     <div class="imageDiv">
-        <img class="logo" src="../Images/logo.png">
+          <img id ="logo" class="logo" src="../Images/logo.png" >
     </div>
     <div class="menuDiv">
         <img class="menu" id= "menuLogo" src="../Images/menu.png">
     </div>
-</div>
-<div class="menuPopup" id="popupMenu">
-  <div class="elementDiv">
-      <h2 class="menuElement">Mon Profil</h2>
   </div>
-  <div class="elementDiv">
-      <h2 class="menuElement">Mes Annonces</h2>
-  </div>
-  <div class="elementDiv">
-      <h2 class="menuElement">Mes Favoris</h2>
-  </div>
-  <div class="elementDiv">
-      <h2 class="menuElement">Conversations</h2>
-  </div>
-  <div class="elementDiv">
-      <h2 class="menuElement">Carte des annonces</h2>
-  </div>
-  <div class="menuButton">
-      <button id="deconnexion">Déconnexion</button>
-  </div>
-</div>
-</header>
-<body>
-  <head>
 
-  </head>
+  <div class="menuPopup" id="popupMenu">
+      <div class="elementDiv">
+          <h2 class="menuElement">Mon Profil</h2>
+      </div>
+      <div class="elementDiv">
+          <h2 class="menuElement">Mes Annonces</h2>
+      </div>
+      <div class="elementDiv">
+          <h2 class="menuElement">Mes Favoris</h2>
+      </div>
+      <div class="elementDiv">
+          <h2 class="menuElement">Conversations</h2>
+      </div>
+      <div class="elementDiv">
+          <h2 class="menuElement">Carte des annonces</h2>
+      </div>
+      <div class="menuButton">
+          <button id="deconnexion">Déconnexion</button>
+      </div>
+    </div>
+  </header>
 
-  <main>
-    <h1>Déposer une annonce</h1>
-        <div class="form-container">
-          <input type="text" id="annonceTitle" class="formInput" placeholder="Titre de l'annonce" required>
-          <input type="text" id="annonceDescription" class="formInput" placeholder="Descriptif de l'annonce" required>
-          <div class="dateContainer">
-            <div class="date1">
-              <label class="dateLabel" for="beginningDate">Date de début</label>
-              <input type="date" id="beginningDate" class="formInput" required>
+  
+  <body>
+    <head>
+
+    </head>
+
+    <main>
+      <h1>Déposer une annonce</h1>
+          <div class="form-container">
+            <input type="text" id="annonceTitle" class="formInput" placeholder="Titre de l'annonce" required>
+            <input type="text" id="annonceDescription" class="formInput" placeholder="Descriptif de l'annonce" required>
+            <div class="dateContainer">
+              <div class="date1">
+                <label class="dateLabel" for="beginningDate">Date de début</label>
+                <input type="date" id="beginningDate" class="formInput" required>
+              </div>
+              <div class="date2">
+                <label for="endDate">Date de fin</label>
+                <input type="date" id="endDate" class="formInput" required>
+              </div>
             </div>
-            <div class="date2">
-              <label for="endDate">Date de fin</label>
-              <input type="date" id="endDate" class="formInput" required>
-            </div>
+            <input type="text" id="city" class="formInput" placeholder="Ville" required>
+            <input type="text" id="compensation" class="formInput" placeholder="Nature de la compensation" required>
+            <input type="file" id="file" class="formInput" name="file">
+            
+
+            <input type="submit" id="submit" class="formInput" value="Déposer l'annonce" value="Déposer un fichier">
           </div>
-          <input type="text" id="city" class="formInput" placeholder="Ville" required>
-          <input type="text" id="compensation" class="formInput" placeholder="Nature de la compensation" required>
-          <input type="file" id="file" class="formInput" name="file">
-          
-
-          <input type="submit" id="submit" class="formInput" value="Déposer l'annonce" value="Déposer un fichier">
-        </div>
-        <script type="text/javascript" src="form.js"></script>
-  </main>
+          <script type="text/javascript" src="form.js"></script>
+    </main>
 </body>
 </html>

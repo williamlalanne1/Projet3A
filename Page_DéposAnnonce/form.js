@@ -17,8 +17,14 @@ const fileInputLabel = document.getElementById('file-input-label',);
 const submit = document.getElementById("submiy");
 
 const menuLogo = document.getElementById("menuLogo");
+const cmLogo = document.getElementById("logo");
 const popupMenu = document.getElementById("popupMenu");
 var isOpen = false;
+
+
+cmLogo.addEventListener("click", () => {
+    window.location.href = "../Page_Accueil/accueil.html";
+});
 
 menuLogo.addEventListener("click", () => {
     if (!isOpen) {

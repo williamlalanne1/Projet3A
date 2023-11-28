@@ -9,15 +9,12 @@ header {
 .container {
     display: grid;
     grid-template-columns: 10fr 2fr 2fr;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     column-gap: 2%;
     height: 100%;
 }
 
-.imageDiv {
-    width: 100%;
-}
 
 img.logo {
     width: 20%;
