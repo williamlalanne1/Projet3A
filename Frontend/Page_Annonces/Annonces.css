@@ -1,0 +1,148 @@
+header {
+    font-family: "Open Sans", sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 6fr 1fr ;
+    grid-template-rows: 150px;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 40px;
+    height: 150px;
+}
+
+.imageDiv {
+    align-self: center;
+}
+
+img.logo {
+    width: 301px;
+    height: 109px;
+    margin-left: 15px;
+}
+
+.inputDiv {
+    align-self: center;
+}
+
+#searchInput {
+    width: 900px;
+    height: 50px;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.menuDiv {
+    align-self: center;
+}
+
+.menu {
+    width: 60px;
+    height: 60px;
+}
+
+.menu:hover {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.menuPopup {
+    visibility: hidden;
+    position: absolute;
+    left: 73.7%;
+    top: 10%;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    box-shadow: 1px 1px 100px 5px #e4eefa;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.elementDiv {
+    width: 350px;
+    height: 70px;
+    margin-bottom: 4px;
+    align-self: center;
+    font-family: "Open Sans", sans-serif;
+}
+
+.elementDiv:hover {
+    width: 350px;
+    height: 70px;
+    margin-bottom: 4px;
+    align-self: center;
+    background-color: #d5f0ff;
+    color: black;
+    cursor:pointer;
+}
+
+.menuElement{
+    margin-bottom: 4px;
+    align-self: center;
+    text-align: center;  
+}
+
+.menuButton{
+    margin-bottom: 4px;
+    align-self: center;
+    text-align: center;  
+}
+
+#deconnexion {
+    align-self: center;
+    width: 240px;
+    height: 60px;
+    background-color: #0B109F;
+    border-radius: 10px;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 8px ;
+}
+
+#deconnexion:hover {
+    align-self: center;
+    width: 240px;
+    height: 60px;
+    background-color: #0B109F;
+    border-radius: 10px;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+main {
+    margin-top: 60px;
+}
+
+#addAnnonces {
+    background-color: #0B109F;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 60px;
+}
+
+#addAnnonceImg {
+    width: 45px;
+    height: 45px;
+    color: white;
+}
+
+.addAnnonceButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 330px;
+}
+
+

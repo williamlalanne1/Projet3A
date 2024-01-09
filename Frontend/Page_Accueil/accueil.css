@@ -1,0 +1,392 @@
+@charset "UTF-8";
+
+/* Design du header composé du logo, des boutons connexion et inscription */
+
+header {
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+/* Container qui permet de créer la grid (le tableau) qui permet l'organisation du hearder*/
+/* On a trois parties distinctes, une div pour le logo, une autre pour la connexion et une dernière pour l'inscription*/
+.container {
+    display: grid;
+    grid-template-columns: 10fr 2fr 2fr;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2%;
+    height: 100%;
+}
+
+/* Pour le logo on définit sa taille et la distance entre le logo et la marge de gauche */
+img.logo {
+    width: 20%;
+    height: 20%;
+    margin-left: 5%;
+}
+
+/* Hover permet de définir ce qu'il se passe quand la souris est sur l'élément */
+img.logo:hover {
+    width: 20%;
+    height: 10%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+/* On définit la taille de la div du bouton connexion */
+.connectionDiv {
+    width: 100%;
+    height: 100%;
+}
+
+/* Ici on design le bouton de connexion */
+button.connectionButton {
+    margin-top: 7.5%;
+    width: 80%;
+    height: 63%;
+    background-color: white;
+    border: solid #0B109F;
+    font-size: 90%;
+    color: #0B109F;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+button.connectionButton:hover {
+    margin-top: 7.5%;
+    width: 80%;
+    height: 63%;
+    background-color: white;
+    border: solid #0B109F;
+    cursor: pointer; 
+    font-size: 90%;
+    color: #0B109F;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.inscriptionDiv {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+button.inscriptionButton {
+    margin-top: 7.5%;
+    width: 80%;
+    height: 63%;
+    background-color: #0B109F;
+    border: none;
+    font-size: 90%;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+button.inscriptionButton:hover {
+    margin-top: 7.5%;
+    width: 80%;
+    height: 63%;
+    background-color: #0B109F;
+    border: none;
+    font-size: 90%;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Style du popup de connexion */
+
+#connexionPopup {
+    display: none;
+}
+
+#connexionPopup.open {
+    display: block;
+    height: 100%;
+}
+
+#popupOverlay1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000007f;
+    z-index: 1;
+}
+
+#popupContent {
+    width: 33%;
+    height: 40%;
+    padding: 2%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    z-index: 99;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+h1 {
+    font-size: 150%;
+    margin-top: 0%;
+}
+
+.connexionPopupElement {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 3%;
+}
+
+.connexionInput {
+    height: 100%;
+}
+
+button.connexion {
+    width: 100%;
+    height: 60%;
+    background-color: #0B109F;
+    border: none;
+    font-size: 100%;
+    color: white;
+    font-weight: 600;
+    align-self: center;
+    margin-top: 5%;
+    cursor:pointer;
+}
+
+#connexionEmail {
+    width: 100%;
+    border-radius: 0%;
+    border: solid thin #BDBDBD;
+    height: 58%;
+}
+
+
+#connexionEmail::placeholder{
+    font-size: 100%;
+    color: #BDBDBD;
+}
+
+#connexionMdp {
+    width: 100%;
+    border-radius: 0%;
+    border: solid thin #BDBDBD;
+    height: 58%;
+}
+
+
+#connexionMdp::placeholder{
+    font-size: 100%;
+    color: #BDBDBD;
+}
+
+a#mdpOublie {
+    align-self: flex-end;
+    margin-top: 5px;
+    color: #091747;
+}
+
+
+a#mdpOublie:hover {
+    align-self: flex-end;
+    margin-top: 5px;
+    color: #2600FE;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a#nouveauCompte {
+    margin-top: 19px;
+    color: #091747;
+    align-self: center;
+}
+
+a#nouveauCompte:hover {
+    margin-top: 19px;
+    color: #2600FE;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+#inscriptionPopup {
+    display: none;
+}
+
+#inscriptionPopup.open {
+    display: block;
+}
+
+#popupOverlay2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000007f;
+    z-index: 1;
+}
+
+#inscriptionPopupContent {
+    height: 80%;
+    width: 30%;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 31px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    z-index: 99;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.inscriptionPopupElement {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 13px; 
+    width: 100%;
+    height: 13%;
+}
+
+.inscriptionInput {
+    border: solid thin #BDBDBD;
+    width: 100%;
+    height: 100%;
+}
+
+.inscriptionLabel {
+    font-size: 90%;
+}
+
+.inscriptionButton#inscriptionButton {
+    width: 100%;
+    height: 14%;
+    background-color: #0B109F;
+    border: none;
+    font-size: 100%;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 25px;
+}
+
+
+a {
+    align-self: center;
+    margin-top: 5px;
+    font-size: 90%;
+}
+
+a:hover {
+    align-self: center;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #2600FE;
+    text-decoration: underline;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 100px;
+    border: solid thin;
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+h1.siteDescription {
+    text-align: center;
+    font-size: 200%;
+    font-weight: 100;
+}
+
+h1.catchPhrase {
+    text-align: center;
+    font-size: 100%;
+    font-weight: 200;
+    color:#0B109F;
+    margin-top: -8px;
+}
+
+button.inscriptionButtonMiddle {
+    width: 200px;
+    height: 70px;
+    background-color: #0B109F;
+    border: none;
+    font-size: 120%;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-bottom: 4%;
+}
+
+button.inscriptionButtonMiddle:hover {
+    width: 200px;
+    height: 70px;
+    background-color: #0B109F;
+    border: none;
+    font-size: 120%;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 5%;
+    cursor: pointer;
+    margin-bottom: 4%;
+}
+
+.socialNetworks {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.twitter {
+    width: 40px;
+    height: 40px;
+    margin-right:90px;  
+}
+
+.facebook {
+    width: 40px;
+    height: 40px;   
+}
+
+h1.credits {
+    font-size: 19px;
+    text-align: center;
+    margin-top: 30px;
+}
