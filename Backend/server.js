@@ -29,7 +29,7 @@ app.get('/users', (req, res) => {
     const email = req.query.email;
 
     if (!email) {
-        return res.status(200).send('Utilisateur non inscrit')
+        return res.status(200).json({ message: 'Rentrez une adresse mail' });
     }
 
     const sql = 'SELECT * FROM utilisateurs WHERE email = ?';
@@ -53,26 +53,24 @@ app.get('/users', (req, res) => {
 
 app.post('/inscription', (req, res) => {
     
-    const { email ,prenom, nom, adresse, mot_de_passe, mdpConfirmation } = req.body;
-    
-    const sql = 'INSERT INTO utilisateurs (email, prenom, nom, mot_de_passe) VALUES (?, ?, ?, ?)'
+    const { email, prenom, nom, adresse, mot_de_passe, mdpConfirmation } = req.body;
+
+    // Vérifier que les mots de passe correspondent
+    if (mot_de_passe !== mdpConfirmation) {
+        res.status(201).json({message: 'Mots de passe différents'});
+    }
+
+    const sql = 'INSERT INTO utilisateurs (email, prenom, nom, adresse, mot_de_passe) VALUES (?, ?, ?, ?, ?)';
     connection.query(sql, [email, prenom, nom, adresse, mot_de_passe], (err, results) => {
         if (err) {
             console.log('Erreur inscription', err);
-            res.status(500).send('Erreur inscription');
+            return res.status(500).send('Erreur inscription');
         }
-        else {
-            if (mot_de_passe === mdpConfirmation) {
-                console.log('Inscription succès');
-                res.status(200).json(results);
-            }
-            else {
-                console.log("Mots de passe différents");
-                res.status(400).send('Entrez des mots de passe identiques');
-            }   
-        }
+        console.log('Inscription succès');
+        return res.status(200).json(results);
     });
 });
+
 
 
 // Route qui gère la connexion
@@ -107,4 +105,8 @@ app.post('/connection', (req, res) => {
             } 
         }
     });
+});
+
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
