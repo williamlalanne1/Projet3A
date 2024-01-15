@@ -67,27 +67,29 @@ const mot_de_passeInput = document.getElementById("mdp");
 
 
 // Validation de l'adresse mail
-function validEmail() {
+async function validEmail() {
     const email = document.getElementById('email').value;
     let emailValid = true;
-
-    fetch(`http://localhost:3000/users?email=${email}`, {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-    })
-    .then(response => {
+    try {
+        const response = await fetch(`http://localhost:3000/users?email=${email}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        })
+        
         if (!response.ok) {
-            throw new Error(`Erreur lors de la requête GET: ${response.status}`)
+                throw new Error(`Erreur lors de la requête GET: ${response.status}`)
         }
-        return response.json();
-    })
-    .then(data => {
+        
+        const data = await response.json();
+        
+        
         if (data.message === 'Utilisateur déjà existant') {
-            document.getElementById("emailError").classList.add('emailVisible');
-            document.getElementById("emailError").classList.remove('emailHidden');
-            document.getElementById("email").classList.add('inscriptionInputError');
-            document.getElementById("email").classList.remove('inscriptionInput');
-            emailValid = false;
+                document.getElementById("emailError").classList.add('emailVisible');
+                document.getElementById("emailError").classList.remove('emailHidden');
+                document.getElementById("email").classList.add('inscriptionInputError');
+                document.getElementById("email").classList.remove('inscriptionInput');
+                document.getElementById("email").classList.remove('inscriptionInputValid');
+                emailValid = false;
         }
         else {
             document.getElementById("emailError").classList.remove('emailVisible');
@@ -96,12 +98,16 @@ function validEmail() {
             document.getElementById("email").classList.add('inscriptionInputValid');
             emailValid = true;
         }
-    })
+    }
+    catch (error) {
+        console.error("Erreur :", error);
+        emailValid = false;
+    }
+    
     return emailValid;
 };
 //aide visuelle pour la validation de l'email
 emailInput.addEventListener("blur", () =>  validEmail());
-
 
 
 // Validation du mot de passe
@@ -171,76 +177,67 @@ function validateForm() {
 
 
 
-
-
-
-
-
-
-
 inscriptionForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    const email = document.getElementById("email").value;
+    const prenom = document.getElementById("prenom").value;
+    const nom = document.getElementById("nom").value;
+    const adresse = document.getElementById("adresse").value;
+    const mdpConfirmation = document.getElementById("mdpConf").value;
+    const mot_de_passe = document.getElementById("mdp").value;
 
     if (!validateForm()) {
         console.log("Tous les champs doivent être remplis");
         return;
     }
     else {
-
-        const email = document.getElementById('email').value;
-
-        fetch(`http://localhost:3000/users?email=${email}`, {
-            method: 'GET',
+        console.log(email);
+        fetch("http://localhost:3000/inscription", {
+            method: 'POST',
             headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email, prenom, nom, adresse, mot_de_passe, mdpConfirmation }),
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Erreur lors de la requête GET: ${response.status}`)
+                console.log(response.status);
+                throw new Error(`Erreur lors de la requête POST: ${response.status}`);
             }
-            return response.json();
-
+            return response.json(); 
         })
         .then(data => {
-            if (data.message === 'Utilisateur déjà existant') {
-            
-                document.getElementById("emailError").classList.add('emailVisible');
-                document.getElementById("emailError").classList.remove('emailHidden');
-                document.getElementById("email").classList.add('inscriptionInputError');
-                document.getElementById("email").classList.remove('inscriptionInput');
-
-            }
-            else {
-                fetch("http://localhost:3000/inscription", {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({email, prenom, nom, adresse, mot_de_passe, mdpConfirmation }),
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        console.log(response.status);
-                        throw new Error(`Erreur lors de la requête POST: ${response.status}`);
-                    }
-                    return response.json(); 
-                })
-                .then(data => {
-
-                    document.getElementById("emailError").classList.remove('emailVisible');
-                    document.getElementById("emailError").classList.add('emailHidden');
-                    document.getElementById("email").classList.remove('inscriptionInputError');
-                    document.getElementById("email").classList.add('inscriptionInputValid');
-                    console.log("Réponse du serveur :", data);
-                    
-                })
-                .catch(error => {
-                    console.error("Erreur :", error);
-                });
-            }
+            inscriptionPopup.classList.remove('open');
+            console.log("Réponse du serveur :", data);
         })
         .catch(error => {
-            console.log('Erreur', error);
-        })
-    }
+            console.error("Erreur :", error);
+        });
+    }       
+    
 });
+
+const connectionForm = document.getElementById("connectionForm");
+
+connectionForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    fetch('http://localhost:3000/connexion', {
+        method: "GET",
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response =>{
+        if (!response.ok) {
+            console.log(response.status);
+            throw new Error(`Erreur lors de la requête GET pour la connexion: ${response.status}`)
+        }
+        return response.json();
+    })
+    .then(data => {
+        if(data.message === 'Connexion reussie') {
+
+        }
+
+    })
+
+})
 
 
 
