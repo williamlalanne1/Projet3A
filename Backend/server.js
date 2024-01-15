@@ -26,11 +26,8 @@ connection.connect((err) => {
 // Route qui gère la présence ou non de l'utilisateur dans la base de données
 
 app.get('/users', (req, res) => {
-    const email = req.query.email;
 
-    if (!email) {
-        return res.status(200).json({ message: 'Rentrez une adresse mail' });
-    }
+    const email = req.query.email;
 
     const sql = 'SELECT * FROM utilisateurs WHERE email = ?';
     connection.query(sql, [email], (err, results) => {
@@ -39,8 +36,8 @@ app.get('/users', (req, res) => {
             res.status(500).send('Erreur');
         }
         if (results.length>0) {
-            console.log('Utilisateur inscrit');
-            return res.status(409).json({message: 'Utilisateur déjà existant' })
+            console.log('Utilisateur déjà inscrit');
+            return res.status(201).json({message:'Utilisateur déjà existant'})
         }
         else {
             return res.status(200).json({message: 'Utilisateur non trouvé' })
@@ -56,9 +53,6 @@ app.post('/inscription', (req, res) => {
     const { email, prenom, nom, adresse, mot_de_passe, mdpConfirmation } = req.body;
 
     // Vérifier que les mots de passe correspondent
-    if (mot_de_passe !== mdpConfirmation) {
-        res.status(201).json({message: 'Mots de passe différents'});
-    }
 
     const sql = 'INSERT INTO utilisateurs (email, prenom, nom, adresse, mot_de_passe) VALUES (?, ?, ?, ?, ?)';
     connection.query(sql, [email, prenom, nom, adresse, mot_de_passe], (err, results) => {
