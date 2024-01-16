@@ -67,7 +67,7 @@ const mot_de_passeInput = document.getElementById("mdp");
 
 
 // Validation de l'adresse mail
-async function validEmail() {
+async function validEmailInscription() {
     const email = document.getElementById('email').value;
     let emailValid = true;
     try {
@@ -107,11 +107,11 @@ async function validEmail() {
     return emailValid;
 };
 //aide visuelle pour la validation de l'email
-emailInput.addEventListener("blur", () =>  validEmail());
+emailInput.addEventListener("blur", () =>  validEmailInscription());
 
 
 // Validation du mot de passe
-function validPassword() {
+function validPasswordInscription() {
     let validPassword = true;
     const mot_de_passe = mot_de_passeInput.value.trim();
     const mdpConfirmation = mdpConfirmationInput.value.trim();
@@ -130,7 +130,7 @@ function validPassword() {
     return validPassword;
 };
 //aide visuelle pour la validation du mot de passe
-mdpConfirmationInput.addEventListener("blur", () =>  validPassword());
+mdpConfirmationInput.addEventListener("blur", () =>  validPasswordInscription());
 
 
 // Validation pour les autres input
@@ -162,13 +162,13 @@ function validateForm() {
         }
     }
 
-    if (!validPassword()) {
+    if (!validPasswordInscription()) {
         mot_de_passeInput.style.borderColor = 'red';
         mdpConfirmationInput.style.borderColor = 'red';
         formIsValid = false;
     }
 
-    if(!validEmail()) {
+    if(!validEmailInscription()) {
         formIsValid = false;
     }
     
@@ -217,27 +217,39 @@ inscriptionForm.addEventListener("submit", (event) => {
 
 const connectionForm = document.getElementById("connectionForm");
 
+async function validatePasswordConnection() {
+
+}
+
 connectionForm.addEventListener("submit", (event) => {
+    const connexionEmail = document.getElementById("connexionEmail").value;
+    const connexionMdp = document.getElementById("connexionMdp").value;
+    
     event.preventDefault();
     fetch('http://localhost:3000/connexion', {
-        method: "GET",
-        headers: {"Content-Type": "application/json"}
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email: connexionEmail, mot_de_passe: connexionMdp}),
     })
-    .then(response =>{
+    .then(response => {
         if (!response.ok) {
             console.log(response.status);
-            throw new Error(`Erreur lors de la requête GET pour la connexion: ${response.status}`)
+            throw new Error(`Erreur lors de la requête POST pour la connexion: ${response.status}`)
         }
         return response.json();
     })
     .then(data => {
-        if(data.message === 'Connexion reussie') {
-
+        if (data.message === 'Connexion reussie') {
+            connexionPopup.classList.remove('open');
+        }
+        if (data.message === "Mot de passe incorrect") {
+            document.getElementById("mdpError").classList.add("mdpErrorVisible");
+            document.getElementById("mdpError").classList.remove("mdpErrorHidden");
         }
 
     })
 
-})
+});
 
 
 

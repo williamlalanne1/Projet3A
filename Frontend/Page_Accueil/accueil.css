@@ -120,8 +120,8 @@ button.inscriptionButton:hover {
 
 #popupContent {
     width: 33%;
-    height: 45%;
-    padding-top: 1%;
+    height: 55%;
+    padding: 2%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -145,7 +145,7 @@ h1 {
     flex-direction: column;
     justify-self: center;
     width: 100%;
-    height: 100%;
+    height: 70%;
     margin-top: 3%;
 }
 
@@ -156,6 +156,11 @@ h1 {
 #emailInput {
     height: 22%;
     margin-bottom: -4%;
+}
+
+#mdpInput {
+    
+    height: 110%;
 }
 
 button.connexion {
@@ -197,17 +202,38 @@ button.connexion {
     color: #BDBDBD;
 }
 
+
+
 #connexionMdp {
     width: 100%;
     border-radius: 0%;
     border: solid thin #BDBDBD;
-    height: 58%;
+    height: 98%;
 }
 
 
 #connexionMdp::placeholder{
     font-size: 100%;
     color: #BDBDBD;
+}
+
+#connexionMdpError {
+    width: 100%;
+    border-radius: 0%;
+    border: solid thin red;
+    height: 58%;
+}
+
+.mdpErrorVisible {
+    visibility: visible;
+    font-size: 70%;
+    color: red;
+}
+
+.mdpErrorHidden {
+    visibility: hidden;
+    font-size: 70%;
+    color: red;
 }
 
 a#mdpOublie {
@@ -366,7 +392,7 @@ h1.catchPhrase {
     font-size: 100%;
     font-weight: 200;
     color:#0B109F;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 button.inscriptionButtonMiddle {

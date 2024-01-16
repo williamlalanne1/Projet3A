@@ -4,6 +4,7 @@ const app = require('./app');
 const bcrypt = require('bcrypt');
 const port = 3000;
 
+
 const server = http.createServer(app);
 
 //Connection à la base de données des utilisateurs
@@ -49,31 +50,40 @@ app.get('/users', (req, res) => {
 //Route qui gère l'inscription au site
 
 app.post('/inscription', (req, res) => {
+
     
+    const saltRounds = 10;
     const { email, prenom, nom, adresse, mot_de_passe, mdpConfirmation } = req.body;
 
-    // Vérifier que les mots de passe correspondent
-
-    const sql = 'INSERT INTO utilisateurs (email, prenom, nom, adresse, mot_de_passe) VALUES (?, ?, ?, ?, ?)';
-    connection.query(sql, [email, prenom, nom, adresse, mot_de_passe], (err, results) => {
+    bcrypt.hash(mot_de_passe, saltRounds, (err, hash) => {
         if (err) {
-            console.log('Erreur inscription', err);
-            return res.status(500).send('Erreur inscription');
+            console.error('Erreur lors du hachage du mot de passe :', err);  
+        } 
+        else {
+
+            const sql = 'INSERT INTO utilisateurs (email, prenom, nom, adresse, mot_de_passe) VALUES (?, ?, ?, ?, ?)';
+            connection.query(sql, [email, prenom, nom, adresse, hash], (err, results) => {
+                if (err) {
+                    console.log('Erreur inscription', err);
+                    return res.status(500).send('Erreur inscription');
+                }
+                console.log('Inscription succès');
+                return res.status(200).json(results);
+            });
         }
-        console.log('Inscription succès');
-        return res.status(200).json(results);
-    });
+    })
 });
 
 
 
 // Route qui gère la connexion
-app.post('/connection', (req, res) => {
+app.post('/connexion', (req, res) => {
     const email = req.body.email;
     const password = req.body.mot_de_passe; 
-    const sql = 'SELECT * FROM users WHERE email = ?';
+    const sql = 'SELECT * FROM utilisateurs WHERE email = ?';
 
     connection.query(sql, [email], (err, results) => {
+
         if (err) {
             console.log('Erreur pour la connexion', err);
             res.status(500).json({ message: 'Erreur connexion' });
@@ -81,25 +91,25 @@ app.post('/connection', (req, res) => {
         else {
             if (results.length > 0) {
 
-                const storedPassword = results[0].mot_de_passe; 
-                bcrypt.compare(password, storedPassword, (bcryptErr, passwordMatch) => {
+                const storedPasswordHash = results[0].mot_de_passe;
+
+                bcrypt.compare(password, storedPasswordHash, (bcryptErr, passwordMatch) => {
                     if (bcryptErr) {
-                        console.log('Erreur lors de la comparaison des mots de pass', bcryptErr);
-                        res.status(500).json({message: 'Erreur lors de la connexion'});
-                    }
-                    else {
+                        console.error('Erreur lors de la comparaison des mots de passe', bcryptErr);
+                        res.status(401).json({ message: 'Erreur lors de la connexion' });
+                    } else {
                         if (passwordMatch) {
-                            res.status(200).json({message: 'Connexion réussie'});
-                        }
-                        else {
-                            res.status(401).json({message: 'Mot de passe incorect'});
+                            res.status(200).json({ message: 'Connexion réussie' });
+                        } else {
+                            res.status(401).json({ message: 'Mot de passe incorrect' });
                         }
                     }
-                })
-            } 
-        }
-    });
+                });
+            }       
+        } 
+    })
 });
+
 
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);

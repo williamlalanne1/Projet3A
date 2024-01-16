@@ -26,7 +26,7 @@
 
         <div id=popupOverlay1></div>
 
-        <form id="connectionForm" action="/connection" method="POST"></form>
+        <form id="connectionForm" action="/connection" method="POST">
 
             <div id="popupContent">
                 <div>
@@ -38,9 +38,10 @@
                     <input class="connexionInput" id="connexionEmail" type="text" placeholder="Email">
                 </div>
 
-                <div class="connexionPopupElement">
+                <div class="connexionPopupElement" id="mdpInput">
                     <label for="connexionMdp">Mot de passe*</label>
-                    <input class="connexionInput" id="connexionMdp" type="text" placeholder="Mot de passe">
+                    <input class="connexionInput" id="connexionMdp" type="password" placeholder="Mot de passe">
+                    <p id="mdpError" class="mdpErrorHidden">Mot de passe incorect.</p>
                 </div>
 
                 <a id="mdpOublie">Mot de passe oublié ?</a>
@@ -91,12 +92,12 @@
 
                 <div class="inscriptionPopupElement">
                     <label class="inscriptionLabel" for="mdp">Mot de passe*</label>
-                    <input class="inscriptionInput" id="mdp" type="text" placeholder="Mot de passe">
+                    <input class="inscriptionInput" id="mdp" type="password" placeholder="Mot de passe">
                 </div>
 
                 <div class="inscriptionPopupElement">
                     <label class="inscriptionLabel" for="mdpConf">Confirmer le mot de passe*</label>
-                    <input class="inscriptionInput" id="mdpConf" type="text" placeholder="Mot de passe">
+                    <input class="inscriptionInput" id="mdpConf" type="password" placeholder="Mot de passe">
                 </div>
 
                 <button id="inscriptionButton" class="inscriptionButton">S'inscrire</button>
