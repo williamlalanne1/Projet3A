@@ -2,6 +2,11 @@ const http = require('http');
 const mysql = require('mysql2');
 const app = require('./app');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+require('dotenv').config();
+
+
+const secret = process.env.JWT_SECRET;
 const port = 3000;
 
 
@@ -11,7 +16,7 @@ const server = http.createServer(app);
 const connection = mysql.createConnection({
     host: "localhost",
     user: "williamlalanne",
-    password: "0w23vu7ySql!",
+    password: process.env.password,
     database: "utilisateurs"
 });
 
@@ -45,6 +50,13 @@ app.get('/users', (req, res) => {
         }
     });
 });
+
+// Création d'une session
+app.use(session({
+    secret: secret, 
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 //Route qui gère l'inscription au site
@@ -99,15 +111,28 @@ app.post('/connexion', (req, res) => {
                         res.status(401).json({ message: 'Erreur lors de la connexion' });
                     } else {
                         if (passwordMatch) {
-                            res.status(200).json({ message: 'Connexion réussie' });
+                            console.log('Email de l\'utilisateur:', results[0].email);
+                            req.session.email = results[0].email;
+                            console.log('Session créée avec succès. userID:', req.session.email);
+                            res.status(200).json({ message: 'Connexion reussie' });
                         } else {
-                            res.status(401).json({ message: 'Mot de passe incorrect' });
+                            res.status(201).json({ message: 'Mot de passe incorrect' });
                         }
                     }
                 });
             }       
         } 
     })
+});
+
+app.post('/deconnexion', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            res.status(500).json({ message: 'Erreur lors de la déconnexion' });
+        } else {
+            res.status(200).json({ message: 'Déconnexion réussie' });
+        }
+    });
 });
 
 

@@ -245,6 +245,8 @@ connectionForm.addEventListener("submit", (event) => {
         if (data.message === "Mot de passe incorrect") {
             document.getElementById("mdpError").classList.add("mdpErrorVisible");
             document.getElementById("mdpError").classList.remove("mdpErrorHidden");
+            document.getElementById("connexionMdp").classList.add("connexionMdpError");
+            document.getElementById("connexionMdp").classList.remove("connexionInput");
         }
 
     })

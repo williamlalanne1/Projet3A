@@ -150,7 +150,10 @@ h1 {
 }
 
 .connexionInput {
-    height: 100%;
+    width: 100%;
+    border-radius: 0%;
+    border: solid thin #BDBDBD;
+    height: 98%;
 }
 
 #emailInput {
@@ -206,8 +209,6 @@ button.connexion {
 
 #connexionMdp {
     width: 100%;
-    border-radius: 0%;
-    border: solid thin #BDBDBD;
     height: 98%;
 }
 
@@ -217,11 +218,11 @@ button.connexion {
     color: #BDBDBD;
 }
 
-#connexionMdpError {
+.connexionMdpError {
     width: 100%;
     border-radius: 0%;
     border: solid thin red;
-    height: 58%;
+    height: 55%;
 }
 
 .mdpErrorVisible {
