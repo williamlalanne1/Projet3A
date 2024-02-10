@@ -239,8 +239,11 @@ connectionForm.addEventListener("submit", (event) => {
         return response.json();
     })
     .then(data => {
-        if (data.message === 'Connexion reussie') {
-            connexionPopup.classList.remove('open');
+        if (data.token) {
+            // Stocker le token JWT dans le localStorage ou dans un cookie
+            localStorage.setItem('token', data.token);
+            // Redirection vers Annonces.html
+            window.location.href = 'http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';
         }
         if (data.message === "Mot de passe incorrect") {
             document.getElementById("mdpError").classList.add("mdpErrorVisible");
@@ -248,9 +251,7 @@ connectionForm.addEventListener("submit", (event) => {
             document.getElementById("connexionMdp").classList.add("connexionMdpError");
             document.getElementById("connexionMdp").classList.remove("connexionInput");
         }
-
     })
-
 });
 
 

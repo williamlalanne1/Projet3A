@@ -7,55 +7,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <title>Centrale M'Aide | Mot de passe oublié</title>
+  <title>Centrale M'Aide | Annonces</title>
 </head>
 <header>
     <div class="container">
-        <div class="imageDiv">
-            <img class="logo" src="../Images/logo.png">
+        
+        <img class="logo" src="../Images/logo.png">
+        
+        <input id="searchInput" type="text" placeholder="Tapez votre recherche">
+        
+        <div class="addAnnonceButton">
+            <button id="addAnnonces">Déposer une annonce</button>
         </div>
-        <div class="inputDiv">
-            <input id="searchInput" type="text" placeholder="Tapez votre recherche">
-        </div>
-        <div class="menuDiv">
-            <img class="menu" id= "menuLogo" src="../Images/menu.png">
-        </div>
+
+        <img class="menu" id= "menuLogo" src="../Images/menu.png">
         
     </div>
+
 </header>
-<div class="menuPopup" id="popupMenu">
-    <div class="elementDiv">
-        <h2 class="menuElement">Mon Profil</h2>
+    <div class="menuPopup" id="popupMenu">
+        <div class="elementDiv">
+            <h2 class="menuElement">Mon Profil</h2>
+        </div>
+        <div class="elementDiv">
+            <h2 class="menuElement">Mes Annonces</h2>
+        </div>
+        <div class="elementDiv">
+            <h2 class="menuElement">Mes Favoris</h2>
+        </div>
+        <div class="elementDiv">
+            <h2 class="menuElement">Conversations</h2>
+        </div>
+        <div class="elementDiv">
+            <h2 class="menuElement">Carte des annonces</h2>
+        </div>
+        <div class="menuButton">
+            <button id="deconnexion">Déconnexion</button>
+        </div>
     </div>
-    <div class="elementDiv">
-        <h2 class="menuElement">Mes Annonces</h2>
-    </div>
-    <div class="elementDiv">
-        <h2 class="menuElement">Mes Favoris</h2>
-    </div>
-    <div class="elementDiv">
-        <h2 class="menuElement">Conversations</h2>
-    </div>
-    <div class="elementDiv">
-        <h2 class="menuElement">Carte des annonces</h2>
-    </div>
-    <div class="menuButton">
-        <button id="deconnexion">Déconnexion</button>
-    </div>
-</div>
-</header>
+    <hr style="margin-top: 2%;">
+
 
 <body>
   <main>
-    <div class="addAnnonceButton">
-        <button id="addAnnonces"><img id="addAnnonceImg" src="../Images/add.png">Déposer une annonce</button>
+    <div class="annoncesContainer" id="annoncesContainer">
     </div>
-    <script type="text/javascript" src="mdp.js"></script>
+    <script type="text/javascript" src="Annonces.js"></script>
   </main>
 
 </body>
 
-<footer>
-<h1 class="credits">© 2023 Centrale M'Aide. All rights reserved.</h1>
-</footer>
 </html>
