@@ -2,6 +2,7 @@ const menuLogo = document.getElementById("menuLogo");
 const popupMenu = document.getElementById("popupMenu");
 const deconnexion = document.getElementById("deconnexion");
 const addAnnonces = document.getElementById("addAnnonces");
+const mesAnnonces = document.getElementById('mesAnnonces');
 var isOpen = false;
 
 menuLogo.addEventListener("click", () => {
@@ -100,3 +101,9 @@ function arrayBufferToBase64(buffer) {
     }
     return btoa(binary);
 }
+
+
+mesAnnonces.addEventListener("click", () => {
+    window.location.href = 'http://127.0.0.1:5501/Frontend/Page_MesAnnonces/MesAnnonces.html';
+
+})

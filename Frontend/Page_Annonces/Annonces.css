@@ -30,6 +30,7 @@ img.logo:hover {
     width: 90%;
     height: 50%;
     border-radius: 20px;
+    border: solid black thin;
 }
 
 #addAnnonces {

@@ -157,14 +157,12 @@ app.post('/connexion', (req, res) => {
 function verifyToken(req, res, next) {
     // Récupérer le token d'authentification de l'en-tête Authorization
     const token = req.headers.authorization.substring(7);
-    console.log(token);
     if (!token) {
         return res.status(401).json({ message: 'Token d\'authentification manquant' });
     }
 
     // Vérifier et valider le token
     jwt.verify(token, secret, (err, decodedToken) => {
-        console.log(decodedToken);
         if (err) {
             return res.status(403).json({ message: 'Token d\'authentification invalide' });
         } else {
@@ -201,7 +199,6 @@ app.post('/annonces', verifyToken, (req, res) => {
 
     // Utilisez le chemin de l'image récupéré depuis la route /uploads
     const imagePath = req.body.imagePath;
-    console.log(imagePath);
 
     const sql = 'INSERT INTO Annonces (email_utilisateur, titre, descriptif, image, date_debut, date_fin, adresse) VALUES (?, ?, ?, ?, ?, ?, ?)';
     connection2.query(sql, [email_utilisateur, titre, descriptif, imagePath, debut, fin, adresse], (err, results) => {
@@ -217,9 +214,27 @@ app.post('/annonces', verifyToken, (req, res) => {
 
 
 
-app.get('/annonces', verifyToken, (req, res) => {
+app.get('/annonces', (req, res) => {
     const sql = "SELECT * FROM Annonces;";
     connection2.query(sql, (err, results) => {
+        if (err) {
+            console.log("Annonces non récupérées")
+            res.status(500).json({message: 'Erreur récupération Annonces'});
+        }
+        else {
+            res.status(200).json({annonces: results});
+        }
+    })
+});
+
+
+
+app.get('/annonces/user', verifyToken, (req, res) => {
+    const email = req.userEmail;
+    console.log(email);
+
+    const sql = "SELECT * FROM Annonces WHERE email_utilisateur = ?";
+    connection2.query(sql, [email], (err, results) => {
         if (err) {
             console.log("Annonces non récupérées")
             res.status(500).json({message: 'Erreur récupération Annonces'});
