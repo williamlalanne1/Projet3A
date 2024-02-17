@@ -165,13 +165,24 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 10%;
-    margin-left: 8%;
-    
+    margin-left: 2%;
+
 }
 
 .annonce {
+    display: flex;
+    flex-direction: column;
     color: black;
     font-size: 100px;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+.annonce:hover {
+    color: black;
+    font-size: 100px;
+    cursor: pointer;
 }
 
 .imageAnnonce {
@@ -181,7 +192,7 @@ main {
 }
 
 .titreAnnonce {
-    margin-top: -20px;
+    margin-top: 4px;
     font-size: 20%;
 }
 

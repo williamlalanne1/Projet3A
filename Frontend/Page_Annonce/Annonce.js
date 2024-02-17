@@ -1,0 +1,115 @@
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+
+const token = localStorage.getItem('token');
+const deconnexion = document.getElementById("deconnexion");
+const boutonAnnonce = document.getElementById("boutonAnnonce");
+const mesAnnonces = document.getElementById('mesAnnonces');
+const menuLogo = document.getElementById("menuLogo");
+const cmLogo = document.getElementById("logo");
+const popupMenu = document.getElementById("popupMenu");
+var isOpen = false;
+
+
+cmLogo.addEventListener("click", () => {
+    window.location.href = "../Page_Accueil/accueil.html";
+});
+
+menuLogo.addEventListener("click", () => {
+    if (!isOpen) {
+        console.log(isOpen);
+        popupMenu.style.visibility='visible';
+        isOpen = true;
+    }
+    else {
+        console.log(isOpen);
+        popupMenu.style.visibility='hidden';
+        isOpen = false;
+    }
+
+});
+
+boutonAnnonce.addEventListener("click", () => {
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';
+});
+
+mesAnnonces.addEventListener("click", () => {
+    window.location.href = 'http://127.0.0.1:5501/Frontend/Page_MesAnnonces/MesAnnonces.html';
+});
+
+//Logique de deconnexion d'un utilisateur
+deconnexion.addEventListener("click", () => { 
+
+    const token = localStorage.getItem('token');
+
+    fetch('http://localhost:3000/deconnexion', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            console.log(response.status);
+            throw new Error(`Erreur lors de la requête POST pour la déconnexion: ${response.status}`)
+        }
+        return response.json();
+    })
+    .then(data => {
+        localStorage.removeItem('token');
+    
+        window.location.href = 'http://127.0.0.1:5501/Frontend/Page_Accueil/accueil.html';
+        console.log("Deconnexion reussie");
+    })
+    .catch(error => {
+        console.error('Erreur lors de la requête fetch:', error);
+    });
+});
+
+function formatDate(dateString) {
+    
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    const formattedDay = day < 10 ? '0' + day : day;
+    const formattedMonth = month < 10 ? '0' + month : month;
+
+    return formattedDay + '-' + formattedMonth + '-' + year;
+}
+
+fetch(`http://localhost:3000/annonce/${id}`, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    }
+})
+.then(response => {
+    if (!response.ok) {
+        console.log(res.status);
+        throw new Error(`Erreur: ${response.status}`)
+    }
+    return response.json();
+})
+.then(data => {
+    const annonce = data.annonce;
+    const parentElement = document.getElementById('annonceContainer');
+    const div = document.createElement('div');
+    div.classList.add('annonce');
+    const date_debut = formatDate(annonce.date_debut);
+    const date_fin = formatDate(annonce.date_fin);
+    
+            
+    div.innerHTML = `
+        <img src="../../Backend/${annonce.image}" alt="Image de l'annonce" class="imageAnnonce">
+        <h2 class="titreAnnonce">${annonce.titre}</h2>
+        <p class="descriptif"> Descriptif : ${annonce.descriptif}</h2>
+        <p class="deposeur">L'annonce a été déposée par : ${annonce.email_utilisateur}</h2>
+        <p class="debutAnnonce">Du :${date_debut}</p>
+        <p class="finAnnonce">Au : ${date_fin}</p>
+    `;
+    parentElement.appendChild(div);
+})

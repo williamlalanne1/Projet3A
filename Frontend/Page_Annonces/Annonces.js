@@ -3,8 +3,12 @@ const popupMenu = document.getElementById("popupMenu");
 const deconnexion = document.getElementById("deconnexion");
 const addAnnonces = document.getElementById("addAnnonces");
 const mesAnnonces = document.getElementById('mesAnnonces');
+const annonce = document.getElementsByClassName("annonce");
+const annoncesContainer = document.getElementById("annoncesContainer");
 var isOpen = false;
 
+
+//Logique du meno déroulant
 menuLogo.addEventListener("click", () => {
     if (!isOpen) {
         console.log(isOpen);
@@ -18,19 +22,23 @@ menuLogo.addEventListener("click", () => {
     }
 });
 
+
+//Redirection vers la page de dépos d'annonces
 addAnnonces.addEventListener("click", () => {
     window.location.href = 'http://127.0.0.1:5501/Frontend/Page_DeposAnnonce/form.html';
 })
 
-deconnexion.addEventListener("click", () => {
-    
+
+//Logique de deconnexion d'un utilisateur
+deconnexion.addEventListener("click", () => { 
+
     const token = localStorage.getItem('token');
 
     fetch('http://localhost:3000/deconnexion', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` // Ajouter le token JWT dans l'en-tête Authorization
+            'Authorization': `Bearer ${token}`
         },
     })
     .then(response => {
@@ -41,9 +49,8 @@ deconnexion.addEventListener("click", () => {
         return response.json();
     })
     .then(data => {
-        // Supprimer le token JWT du localStorage ou du cookie après la déconnexion
         localStorage.removeItem('token');
-        // Redirection vers la page d'accueil
+    
         window.location.href = 'http://127.0.0.1:5501/Frontend/Page_Accueil/accueil.html';
         console.log("Deconnexion reussie");
     })
@@ -52,6 +59,8 @@ deconnexion.addEventListener("click", () => {
     });
 });
 
+
+//Récupération des annonces dans la base de données
 fetch('http://localhost:3000/annonces', {
     method: 'GET',
     headers: {
@@ -67,13 +76,11 @@ fetch('http://localhost:3000/annonces', {
 .then(data => {
     if (Array.isArray(data.annonces)) {
         data.annonces.forEach(annonce => {
-            console.log(annonce.image.data);
+        
             const parentElement = document.getElementById('annoncesContainer');
             const div = document.createElement('div');
             div.classList.add('annonce');
-            
-            // Convertir les données de l'image en base64
-            
+            div.setAttribute("id", `${annonce.id}`)
             
             div.innerHTML = `
                 <img src="../../Backend/${annonce.image}" alt="Image de l'annonce" class="imageAnnonce">
@@ -92,18 +99,20 @@ fetch('http://localhost:3000/annonces', {
     console.log("Erreur", error);
 });
 
-// Fonction pour convertir un ArrayBuffer en base64
-function arrayBufferToBase64(buffer) {
-    let binary = '';
-    const bytes = new Uint8Array(buffer);
-    for (let i = 0; i < bytes.length; i++) {
-        binary += String.fromCharCode(bytes[i]);
+
+
+annoncesContainer.addEventListener("click", (event) => {
+    console.log(event.target.parentElement)
+    if (event.target.parentElement.classList.contains("annonce")) {
+        const annonceElement = event.target.parentElement;
+        const id = annonceElement.getAttribute("id");
+        window.location.href= `/Frontend/Page_Annonce/Annonce.html?id=${id}`;
+        console.log(id);
     }
-    return btoa(binary);
-}
+})
 
 
 mesAnnonces.addEventListener("click", () => {
     window.location.href = 'http://127.0.0.1:5501/Frontend/Page_MesAnnonces/MesAnnonces.html';
+});
 
-})

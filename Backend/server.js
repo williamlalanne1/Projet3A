@@ -49,6 +49,8 @@ connection2.connect((err) => {
     }
 });
 
+app.use(express.static('public'));
+
 app.use('/uploads', express.static(path.join(__dirname, '')));
 
 // Route qui gère la présence ou non de l'utilisateur dans la base de données
@@ -182,15 +184,17 @@ const storage = multer.diskStorage({
     }
   });
   
-  const upload = multer({ storage: storage });
+const upload = multer({ storage: storage });
+
   
-  // Définir la route POST pour le téléchargement d'images
-  app.post('/upload', upload.single('image'), (req, res) => {
+// Définir la route POST pour le téléchargement d'images
+app.post('/upload', upload.single('image'), (req, res) => {
     if (!req.file) {
       return res.status(400).send('Aucune image téléchargée.');
     }
     res.send(req.file.path);
   });
+
 
 // Route qui gère la création d'une annonce
 app.post('/annonces', verifyToken, (req, res) => {
@@ -225,6 +229,26 @@ app.get('/annonces', (req, res) => {
             res.status(200).json({annonces: results});
         }
     })
+});
+
+app.get('/annonce/:id', verifyToken, (req, res) => {
+    const annonceId = req.params.id;
+    const sql = "SELECT * FROM Annonces WHERE ID = ?;";
+    connection2.query(sql, [annonceId], (err, results) => {
+        if (err) {
+            res.status(500).json({message: "Erreur lors de la récupération de l'annonce"});
+            console.log(`Annonce n°${annonceId} pas récupérée`);
+        }
+        else {
+            if (results.length === 0) {
+                res.status(404).json({message: "Annonce non trouvée"});
+            }
+            else {
+                res.status(200).json({annonce: results[0]});
+                console.log(`Annonce n°${annonceId} récupérée avec succès`);
+            }
+        }
+    });
 });
 
 
