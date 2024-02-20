@@ -177,43 +177,67 @@ function validateForm() {
 
 
 
-inscriptionForm.addEventListener("submit", (event) => {
+inscriptionForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    // Récupérer les valeurs des champs du formulaire
     const email = document.getElementById("email").value;
     const prenom = document.getElementById("prenom").value;
     const nom = document.getElementById("nom").value;
     const adresse = document.getElementById("adresse").value;
-    const mdpConfirmation = document.getElementById("mdpConf").value;
     const mot_de_passe = document.getElementById("mdp").value;
+    const mdpConfirmation = document.getElementById("mdpConf").value;
 
+    let imagePath; // Déclarer la variable pour stocker le chemin de l'image
+
+    // Valider le formulaire
     if (!validateForm()) {
         console.log("Tous les champs doivent être remplis");
         return;
     }
-    else {
-        console.log(email);
-        fetch("http://localhost:3000/inscription", {
+
+    try {
+        // Télécharger l'image vers le serveur
+        const imageFile = document.getElementById('photo').files[0];
+        if (imageFile) {
+            const formData = new FormData();
+            formData.append('image', imageFile);
+            const uploadResponse = await fetch("http://localhost:3000/profil", {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!uploadResponse.ok) {
+                throw new Error(`Erreur lors du téléchargement de l'image: ${uploadResponse.status}`);
+            }
+
+            // Récupérer le chemin de l'image téléchargée depuis la réponse du serveur
+            imagePath = await uploadResponse.text();
+        } else {
+            // Si aucun fichier image n'est téléchargé, définissez un chemin d'image par défaut
+            imagePath = 'profil/defaut.png'; // Remplacez par le chemin de l'image par défaut souhaité
+        }
+
+        // Envoyer les données du formulaire au serveur pour l'inscription
+        const response = await fetch("http://localhost:3000/inscription", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email, prenom, nom, adresse, mot_de_passe, mdpConfirmation }),
-        })
-        .then(response => {
-            if (!response.ok) {
-                console.log(response.status);
-                throw new Error(`Erreur lors de la requête POST: ${response.status}`);
-            }
-            return response.json(); 
-        })
-        .then(data => {
-            inscriptionPopup.classList.remove('open');
-            console.log("Réponse du serveur :", data);
-        })
-        .catch(error => {
-            console.error("Erreur :", error);
+            body: JSON.stringify({email, prenom, nom, adresse, mot_de_passe, mdpConfirmation, imagePath }),
         });
-    }       
-    
+
+        if (!response.ok) {
+            throw new Error(`Erreur lors de la requête POST: ${response.status}`);
+        }
+
+        const data = await response.json();
+        inscriptionPopup.classList.remove('open');
+        console.log("Réponse du serveur :", data);
+    } catch (error) {
+        console.error("Erreur :", error);
+    }
 });
+
+
 
 const connectionForm = document.getElementById("connectionForm");
 
@@ -240,7 +264,7 @@ connectionForm.addEventListener("submit", (event) => {
     })
     .then(data => {
         if (data.token) {
-            // Stocker le token JWT dans le localStorage ou dans un cookie
+            
             localStorage.setItem('token', data.token);
             // Redirection vers Annonces.html
             window.location.href = 'http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';

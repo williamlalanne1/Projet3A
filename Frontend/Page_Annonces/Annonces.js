@@ -28,6 +28,10 @@ addAnnonces.addEventListener("click", () => {
     window.location.href = 'http://127.0.0.1:5501/Frontend/Page_DeposAnnonce/form.html';
 })
 
+monProfil.addEventListener("click", () => {
+    window.location.href = 'http://127.0.0.1:5501/Frontend/Page_Profil/Profil.html';
+})
+
 
 //Logique de deconnexion d'un utilisateur
 deconnexion.addEventListener("click", () => { 

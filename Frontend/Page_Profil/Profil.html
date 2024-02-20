@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="MesAnnonces.css" media="screen">
+  <link rel="stylesheet" href="Profil.css" media="screen">
   <link rel="stylesheet" href="../style.css" media="screen">
   <title>Form</title>
 </head>
@@ -21,10 +21,10 @@
   </div>
 
   <div class="menuPopup" id="popupMenu">
-      <div class="elementDiv" id="monProfil">
+      <div class="elementDiv">
           <h2 class="menuElement">Mon Profil</h2>
       </div>
-      <div class="elementDiv">
+      <div class="elementDiv" id="mesAnnonces">
           <h2 class="menuElement">Mes Annonces</h2>
       </div>
       <div class="elementDiv">
@@ -33,7 +33,7 @@
       <div class="elementDiv">
           <h2 class="menuElement">Conversations</h2>
       </div>
-      <div class="elementDiv">
+      <div class="elementDiv" id="boutonAnnonce">
           <h2 id="boutonAnnonce" class="menuElement">Annonces</h2>
       </div>
       <div class="menuButton">
@@ -43,11 +43,13 @@
   </header>
 
 <main>
-    <h1>Mes Annonces</h1>
-    <div id="annoncesContainer" class="annoncesContainer">
+    <h1>Mon profil</h1>
+    <div class="profilContainer" id="profilContainer">
 
     </div>
-    <script type="text/javascript" src="MesAnnonces.js"></script>
+
+    </div>
+    <script type="text/javascript" src="Profil.js"></script>
 </main>
 </body>
 </html>

@@ -53,6 +53,9 @@ app.use(express.static('public'));
 
 app.use('/uploads', express.static(path.join(__dirname, '')));
 
+
+app.use('/profil', express.static(path.join(__dirname, '')));
+
 // Route qui gère la présence ou non de l'utilisateur dans la base de données
 app.get('/users', (req, res) => {
 
@@ -80,15 +83,15 @@ app.get('/users', (req, res) => {
 app.post('/inscription', (req, res) => {
     
     const saltRounds = 10;
-    const { email, prenom, nom, adresse, mot_de_passe, mdpConfirmation } = req.body;
+    const { email, prenom, nom, adresse, mot_de_passe, mdpConfirmation, imagePath } = req.body;
 
     bcrypt.hash(mot_de_passe, saltRounds, (err, hash) => {
         if (err) {
             console.error('Erreur lors du hachage du mot de passe :', err);  
         } 
         else {
-            const sql = 'INSERT INTO utilisateurs (email, prenom, nom, adresse, mot_de_passe) VALUES (?, ?, ?, ?, ?)';
-            connection.query(sql, [email, prenom, nom, adresse, hash], (err, results) => {
+            const sql = 'INSERT INTO utilisateurs (email, prenom, nom, adresse, mot_de_passe, image) VALUES (?, ?, ?, ?, ?, ?)';
+            connection.query(sql, [email, prenom, nom, adresse, hash, imagePath], (err, results) => {
                 if (err) {
                     console.log('Erreur inscription', err);
                     return res.status(500).send('Erreur inscription');
@@ -134,9 +137,29 @@ app.post('/connexion', (req, res) => {
     });
 });
 
+
+// Middleware pour vérifier et valider le token d'authentification
+function verifyToken(req, res, next) {
+    const token = req.headers.authorization.substring(7);
+    if (!token) {
+        return res.status(401).json({ message: 'Token d\'authentification manquant' });
+    }
+
+    jwt.verify(token, secret, (err, decodedToken) => {
+        if (err) {
+            return res.status(403).json({ message: 'Token d\'authentification invalide' });
+        } else {
+            
+            req.userEmail = decodedToken.email;
+            next();
+        }
+    });
+}
+
+
 // Route qui gère le profil de l'utilisateur
-/*app.get('/profil', requireAuth, (req, res) => {
-    const userEmail = req.user.email;
+app.get('/profil', verifyToken, (req, res) => {
+    const userEmail = req.userEmail;
     console.log('Email récupéré depuis le token:', userEmail);
     const sql = 'SELECT * FROM utilisateurs WHERE email = ?';
     connection.query(sql, [userEmail], (err, results) => {
@@ -149,44 +172,46 @@ app.post('/connexion', (req, res) => {
             } else {
                 const userProfile = results[0];
                 console.log('Profil trouvé:', userProfile);
-                res.json(userProfile);
+                res.json({profil: userProfile});
             }
         }
     });
-});*/
+});
 
-// Middleware pour vérifier et valider le token d'authentification
-function verifyToken(req, res, next) {
-    // Récupérer le token d'authentification de l'en-tête Authorization
-    const token = req.headers.authorization.substring(7);
-    if (!token) {
-        return res.status(401).json({ message: 'Token d\'authentification manquant' });
-    }
 
-    // Vérifier et valider le token
-    jwt.verify(token, secret, (err, decodedToken) => {
-        if (err) {
-            return res.status(403).json({ message: 'Token d\'authentification invalide' });
-        } else {
-            // Récupérer l'adresse e-mail de l'utilisateur à partir du token décodé
-            req.userEmail = decodedToken.email;
-            next();
-        }
-    });
-}
 
-const storage = multer.diskStorage({
+const storageProfil = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'uploads/'); 
+      cb(null, 'profil/'); 
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + path.extname(file.originalname));
     }
   });
   
-const upload = multer({ storage: storage });
+const profil = multer({ storage: storageProfil });
 
+app.post('/profil', profil.single('image'), (req, res) => {
+    if (!req.file) {
+      return res.status(400).send('Aucune image téléchargée.');
+    }
+    console.log(req.file.path);
+    res.send(req.file.path);
+});
   
+
+const storageAnnonce = multer.diskStorage({
+destination: function (req, file, cb) {
+    cb(null, 'uploads/'); 
+},
+filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+}
+});
+  
+const upload = multer({ storage: storageAnnonce });
+
+
 // Définir la route POST pour le téléchargement d'images
 app.post('/upload', upload.single('image'), (req, res) => {
     if (!req.file) {
@@ -195,13 +220,11 @@ app.post('/upload', upload.single('image'), (req, res) => {
     res.send(req.file.path);
   });
 
-
 // Route qui gère la création d'une annonce
 app.post('/annonces', verifyToken, (req, res) => {
     const { titre, descriptif, debut, fin, adresse } = req.body;
     const email_utilisateur = req.userEmail;
-
-    // Utilisez le chemin de l'image récupéré depuis la route /uploads
+;
     const imagePath = req.body.imagePath;
 
     const sql = 'INSERT INTO Annonces (email_utilisateur, titre, descriptif, image, date_debut, date_fin, adresse) VALUES (?, ?, ?, ?, ?, ?, ?)';

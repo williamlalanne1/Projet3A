@@ -5,6 +5,7 @@ const token = localStorage.getItem('token');
 const deconnexion = document.getElementById("deconnexion");
 const boutonAnnonce = document.getElementById("boutonAnnonce");
 const mesAnnonces = document.getElementById('mesAnnonces');
+const monProfil = document.getElementById("monProfil");
 const menuLogo = document.getElementById("menuLogo");
 const cmLogo = document.getElementById("logo");
 const popupMenu = document.getElementById("popupMenu");
@@ -27,6 +28,10 @@ menuLogo.addEventListener("click", () => {
         isOpen = false;
     }
 
+});
+
+monProfil.addEventListener("click", () => {
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Profil/Profil.html';
 });
 
 boutonAnnonce.addEventListener("click", () => {
@@ -113,3 +118,95 @@ fetch(`http://localhost:3000/annonce/${id}`, {
     `;
     parentElement.appendChild(div);
 })
+
+fetch('http://localhost:3000/profil', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    },
+})
+.then(response => {
+    if (!response.ok) {
+        console.log(response.status);
+        throw new Error(`Erreur lors de la requête : ${response.status}`);
+    }
+    return response.json();
+})
+.then(data => {
+    const profil = data.profil;
+    const email = profil.email;
+    const prenom = profil.prenom;
+    const nom = profil.nom;
+    const adresse = profil.adresse;
+    const div = document.getElementById('profilContainer');
+    
+             
+    div.innerHTML = `
+        <div class="imageContainer">
+            <img src="../../Backend/${profil.image}" alt="Image de l'annonce" class="profilImage">
+        </div>
+        <div class="informationsContainer">
+            <h2>Annonce déposée par : ${prenom}</h2>
+            <p> Email : ${email}</p>
+            <p> Adresse : ${adresse}</p>
+        </div>
+        `;
+    
+})
+.catch(error => {
+    console.log("Erreur", error);
+})
+
+
+function initMap() {
+
+    fetch(`http://localhost:3000/annonce/${id}`, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    }
+    })
+    .then(response => {
+        if (!response.ok) {
+            console.log(res.status);
+            throw new Error(`Erreur: ${response.status}`)
+        }
+        return response.json();
+    })
+    .then(data => {
+        const annonce = data.annonce;
+        const adresse = annonce.adresse;
+        const address = `${adresse}`;
+
+        
+        const geocoder = new google.maps.Geocoder();
+
+        
+        geocoder.geocode({ address: address }, (results, status) => {
+            if (status === 'OK') {
+                
+                const location = results[0].geometry.location;
+                const latitude = location.lat();
+                const longitude = location.lng();
+
+                const mapOptions = {
+                    center: { lat: latitude, lng: longitude },
+                    zoom: 16
+                };
+
+                const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+                const marker = new google.maps.Marker({
+                    position: { lat: latitude, lng: longitude },
+                    map: map,
+                    title: address
+                });
+            } else {
+                console.error('Erreur de géocodage:', status);
+            }
+        });
+    })
+    
+}

@@ -102,7 +102,7 @@ annoncesForm.addEventListener("submit", async (event) => {
 
     try {
         // Récupérer le token d'authentification stocké côté client
-        const token = localStorage.getItem('token'); // Assurez-vous que le token est stocké correctement
+        const token = localStorage.getItem('token'); 
         ;
         // Récupérer les autres données du formulaire
         const titre1 = titre.value;

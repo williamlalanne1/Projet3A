@@ -4,6 +4,7 @@ const popupMenu = document.getElementById("popupMenu");
 const deconnexion = document.getElementById("deconnexion");
 const monBoutton = document.getElementById("monBoutton");
 const boutonAnnonce = document.getElementById("boutonAnnonce");
+const monProfil = document.getElementById("monProfil");
 var isOpen = false;
 
 
@@ -23,6 +24,14 @@ menuLogo.addEventListener("click", () => {
         isOpen = false;
     }
 
+});
+
+boutonAnnonce.addEventListener("click", () => {
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';
+});
+
+monProfil.addEventListener("click", () => {
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Profil/Profil.html';
 });
 
 
@@ -73,9 +82,6 @@ window.addEventListener("DOMContentLoaded", async (event) => {
 
 });
 
-boutonAnnonce.addEventListener("click", () => {
-    window.location.href='http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';
-});
 
 deconnexion.addEventListener("click", () => {
     
