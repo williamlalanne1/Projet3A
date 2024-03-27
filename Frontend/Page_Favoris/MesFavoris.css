@@ -1,0 +1,275 @@
+h1 {
+    text-align: center;
+    margin-top: 5%;
+}
+
+h2#favorisIntro {
+    border-bottom-color: rgb(21, 34, 51);
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(21, 34, 51);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-color: rgb(21, 34, 51);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-color: rgb(21, 34, 51);
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    color: rgb(21, 34, 51);
+    display: block;
+    font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-size: 20px;
+    font-variation-settings: normal;
+    font-weight: 700;
+    height: 44px;
+    line-height: 28px;
+    margin-block-end: 8px;
+    margin-block-start: 0px;
+    margin-bottom: 8px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    margin-left: 15%;
+    margin-right: 0px;
+    margin-top: 3%;
+    padding-top: 16px;
+    tab-size: 4;
+    text-align: left;
+    text-size-adjust: 100%;
+    width :594px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+h3 {
+    border-bottom-color: rgb(21, 34, 51);
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(21, 34, 51);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-color: rgb(21, 34, 51);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-color: rgb(21, 34, 51);
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    color: rgb(21, 34, 51);
+    display: block;
+    font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-size: 14px;
+    font-variation-settings: normal;
+    height: 20px;
+    line-height: 20px;
+    margin-block-end: 0px;
+    margin-block-start: 16px;
+    margin-bottom: 0px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    margin-left : 15%;
+    margin-right: 0px;
+    margin-top: 16px;
+    tab-size: 4;
+    text-align: left;
+    text-size-adjust: 100%;
+    width: 594px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+
+#popupOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000007f;
+    z-index: 1;
+}
+
+#annoncesContainer {
+    border-bottom-color: rgb(21, 34, 51);
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(21, 34, 51);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-color: rgb(21, 34, 51);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-color: rgb(21, 34, 51);
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    color: rgb(21, 34, 51);
+    column-gap: 8px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-size: 13px;
+    font-variation-settings: normal;
+    grid-template-columns: 594px;
+    height: 416px;
+    line-height: 19.5px;
+    padding-top: 24px;
+    row-gap: 8px;
+    text-size-adjust: 100%;
+    width: 70%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.annonceContainer {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 8%;
+    justify-content: center;
+    align-items: center;
+    border: solid grey thin;
+    font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-size: 13px;
+    font-variation-settings: normal;
+    height: 80%;
+    line-height: 19.5px;
+    min-height: 160px;
+    position: relative;
+    tab-size: 4;
+    text-size-adjust: 100%;
+    width: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+.imageDiv2 {
+    height: 100%;
+    background-color: aqua;
+}
+
+.imageAnnonce {
+    border-bottom-color: rgb(21, 34, 51);
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(21, 34, 51);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-color: rgb(21, 34, 51);
+    border-right-style: solid;
+    border-right-width :0px;
+    border-top-color: rgb(21, 34, 51);
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-size: 0px;
+    font-variation-settings: normal;
+    height: 100%;
+    left: 0px;
+    line-height: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    max-width: 100%;
+    object-fit: cover;
+    overflow-x: clip;
+    overflow-y: clip;
+    position: absolute;
+    right: 0px;
+    tab-size: 4;
+    text-size-adjust: 100%;
+    top: 0px;
+    width: 25%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+}
+
+
+
+.modifInformations {
+    font-size: 100%;
+    height: 4%;
+    background-color: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #0B109F;
+    border: solid #0B109F thin;
+    margin-left: 4%;
+}
+
+.modifInformations:hover {
+    font-size: 100%;
+    height: 4%;
+    background-color: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #0B109F;
+    border: solid #0B109F thin;
+    margin-left: 4%;
+    cursor: pointer;
+}
+
+#modif-info-popup-content {
+    height: 65%;
+    width: 25%;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 31px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    z-index: 99;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.modificationPopupElement {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 1%; 
+    width: 100%;
+    height: 15%;
+}
+
+.titreAnnonce {
+    font-size: 100%;
+    
+}
+
+
+
+

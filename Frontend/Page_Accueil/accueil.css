@@ -272,6 +272,7 @@ a#nouveauCompte:hover {
 
 #inscriptionPopup.open {
     display: block;
+    overflow: scroll;
 }
 
 #popupOverlay2 {
@@ -285,7 +286,7 @@ a#nouveauCompte:hover {
 }
 
 #inscriptionPopupContent {
-    height: 85%;
+    height: 75%;
     width: 30%;
     padding-top: 24px;
     padding-bottom: 20px;
@@ -362,11 +363,32 @@ a:hover {
     text-decoration: underline;
 }
 
+.inscription-succes {
+    display: none;
+    background-color: white;
+    font-size: 70%;
+    width: 22%;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+
+
+
+
+
+
 body {
     font-family: "Open Sans", sans-serif;
     width: 100%;
     height: 100%;
 }
+
+
 
 .mainContainer {
     display: flex;

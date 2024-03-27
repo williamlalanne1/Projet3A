@@ -27,11 +27,8 @@
       <div class="elementDiv" id="mesAnnonces">
           <h2 class="menuElement">Mes Annonces</h2>
       </div>
-      <div class="elementDiv">
+      <div class="elementDiv" id="mesFavoris">
           <h2 class="menuElement">Mes Favoris</h2>
-      </div>
-      <div class="elementDiv">
-          <h2 class="menuElement">Conversations</h2>
       </div>
       <div class="elementDiv" id="boutonAnnonce">
           <h2 id="boutonAnnonce" class="menuElement">Annonces</h2>
@@ -43,12 +40,50 @@
   </header>
 
 <main>
-    <h1>Mon profil</h1>
-    <div class="profilContainer" id="profilContainer">
+    <h1 class="pageTitle">Mon profil</h1>
+    <div class="profilContainer" id="profilContainer"></div>
 
-    </div>
+    <div id="modif-info-popup">
 
+        <div id=popupOverlay> </div>
+
+            <div id="modif-info-popup-content">
+
+                <form id="modificationForm" action="/profil" method="PATCH">
+                    <h1>Modifiez vos informations</h1>
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="prenom">Prénom*</label>
+                        <input class="modificationInput" id="prenom" type="text" placeholder="Prénom">
+                    </div>
+
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="nom">Nom*</label>
+                        <input class="modificationInput" id="nom" type="text" placeholder="Nom">
+                    </div>
+
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="facebook">Facebook*</label>
+                        <input class="modificationInput" id="facebook" type="text" placeholder="Lien profil Facebook">
+                    </div>
+
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="adresse">Adresse*</label>
+                        <input class="modificationInput" id="adresse" type="text" placeholder="Adresse">
+                    </div>
+
+                    <div class="modificationPopupElementPhoto">
+                        <label class="modifitionLabel" for="image">Photo de profil</label>
+                        <input class="modificationInput" id="image" type="file" placeholder="Photo de profil">
+                    </div>
+
+                    <button type="submit" id="modificationButton" class="modificationButton">Modifier les infos</button>
+                    
+                </form>
+            </div>
+       
+        
     </div>
+    <Button class="modifInformations" id="modifBouton">Modifier mes informations</Button>
     <script type="text/javascript" src="Profil.js"></script>
 </main>
 </body>

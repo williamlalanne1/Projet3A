@@ -32,11 +32,8 @@
         <div class="elementDiv" id="mesAnnonces">
             <h2 class="menuElement">Mes Annonces</h2>
         </div>
-        <div class="elementDiv">
+        <div class="elementDiv" id="mesFavoris">
             <h2 class="menuElement">Mes Favoris</h2>
-        </div>
-        <div class="elementDiv">
-            <h2 class="menuElement">Conversations</h2>
         </div>
         <div class="elementDiv">
             <h2 id="boutonAnnonce" class="menuElement">Annonces</h2>
@@ -47,12 +44,20 @@
     </div>
     <hr style="margin-top: 2%;">
 
+<div class="radio-button">
+    <p id="carte_des_annonces">Voir la carte des annonces</p>
+    <label class="switch">
+        <input type="checkbox" id="radio-button" name="checkbox">
+        <span class="slider round"></span>
+      </label>
+</div>
 
 <body>
   <main>
-    <div class="annoncesContainer" id="annoncesContainer">
-    </div>
+    <div id="map" class="hiddenMap"></div>
+    <div class="annoncesContainer" id="annoncesContainer"></div>
     <script type="text/javascript" src="Annonces.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi7sL4NCI99GcnDD8fXK6X6Qpx-xSRAmM&callback=initMap&libraries=&v=weekly&loading=async" async defer></script>
   </main>
 
 </body>

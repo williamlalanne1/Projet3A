@@ -1,11 +1,22 @@
 h1 {
     text-align: center;
+    margin-top: 3%;
+}
+
+#popupOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000007f;
+    z-index: 1;
 }
 
 .profilContainer {
     display: flex;
     flex-direction: row;
-    border: solid thin black;
+    box-shadow: 0px 7px 30px -10px #5F62AD;
     border-radius: 20px;
     margin: 5% auto;
     justify-content: center;
@@ -26,8 +37,148 @@ h1 {
     width: 28%;
 }
 
-
 .profilImage {
     width: 100%;
+    border-radius: 100%;
+}
+
+.facebookDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#facebookLink {
+    color:#0B109F;
+    margin-left: 2%;
+}
+
+.facebookLink:hover {
+    color:#0B109F;
+    cursor: pointer;
+}
+
+#modif-info-popup {
+    display: none;
+}
+
+#modif-info-popup.open {
+    display: block;
+}
+
+.modifInformations {
+    font-size: 100%;
+    height: 4%;
+    background-color: #0B109F;
+    padding: 10px 10px;
+    border-radius: 8px;
+    color: white;
+    border: solid #0B109F thin;
+    margin-left: 4%;
+}
+
+.modifInformations:hover {
+    font-size: 100%;
+    height: 4%;
+    background-color: #0B109F;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: white;
+    border: solid #0B109F thin;
+    margin-left: 4%;
+    cursor: pointer;
+}
+
+#modif-info-popup-content {
+    height: 65%;
+    width: 25%;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 31px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: solid thin black;
+    z-index: 99;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.modificationPopupElement {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 1%; 
+    width: 100%;
+    height: 15%;
+}
+
+.modificationPopupElementPhoto {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 19px; 
+    width: 100%;
+    height: 15%;
+}
+
+
+.modificationInput {
+    border: solid thin #BDBDBD;
+    width: 100%;
+    height: 50%;
+}
+
+.modificationButton#modificationButton {
+    width: 100%;
+    height: 14%;
+    background-color: #0B109F;
+    border: none;
+    font-size: 100%;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 10%;
+}
+
+.modificationButton#modificationButton:hover {
+    width: 100%;
+    height: 14%;
+    background-color: #0B109F;
+    border: none;
+    font-size: 100%;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 10%;
+    cursor: pointer;
+}
+
+.modificationLabel {
+    font-size: 90%;
+}
+
+.nouvellePhoto {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#photo {
+    margin-left: 8%;
+    height: 50%;
+    width: 100%;
+}
+
+.modifProfilImage {
+    width: 50px;
     border-radius: 100%;
 }

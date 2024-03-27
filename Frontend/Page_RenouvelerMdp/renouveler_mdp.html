@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="renouveler_mdp.css" media="screen and (max-width: 3000px)">
+  <link rel="stylesheet" href="../style.css" media="screen">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Centrale M'Aide | Mot de passe oublié</title>
+</head>
+
+<header>
+    <div class="container">
+        <div class="imageDiv">
+            <img id="logo" class="logo" src="../Images/logo.png">
+        </div>
+        <div class="menuDiv">
+            <img class="menu" id= "menuLogo" src="../Images/menu.png">
+        </div>
+    </div>
+</header>
+
+<div class="menuPopup" id="popupMenu">
+    <div class="elementDiv">
+        <h2 class="menuElement">Mon Profil</h2>
+    </div>
+    <div class="elementDiv">
+        <h2 class="menuElement">Mes Annonces</h2>
+    </div>
+    <div class="elementDiv">
+        <h2 class="menuElement">Mes Favoris</h2>
+    </div>
+    <div class="elementDiv">
+        <h2 class="menuElement">Annonces</h2>
+    </div>
+    <div class="menuButton">
+        <button id="deconnexion">Déconnexion</button>
+    </div>
+</div>
+
+<body>
+  <main>
+    <h1 class="titre">Réinitialisez votre mot de passe</h1>
+    <h2 id="text">Saisissez votre adresse mail, un lien pour changer votre mot de passe vous sera envoyé</h2>
+    <div class="mdpContainer">
+        <div class="emailDiv">
+            <label for="email">Email*</label>
+            <input type="text" id="email" placeholder="Email">
+        </div>
+        
+        <button id="emailButton">Recevoir l'email</button>
+    </div>
+    <script type="text/javascript" src="renouveler_mdp.js"></script>
+  </main>
+
+</body>
+<footer>
+  <h1 class="credits">© 2023 Centrale M'Aide. All rights reserved.</h1>
+</footer>
+</html>

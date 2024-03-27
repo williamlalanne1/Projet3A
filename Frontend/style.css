@@ -50,8 +50,8 @@ img.logo:hover {
 .menuPopup {
     visibility: hidden;
     position: absolute;
-    left: 76%;
-    top: 9%;
+    left: 75.1%;
+    top: 11%;
     z-index: 99;
     background-color: white;
     display: flex;

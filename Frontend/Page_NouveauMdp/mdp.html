@@ -34,10 +34,7 @@
         <h2 class="menuElement">Mes Favoris</h2>
     </div>
     <div class="elementDiv">
-        <h2 class="menuElement">Conversations</h2>
-    </div>
-    <div class="elementDiv">
-        <h2 class="menuElement">Carte des annonces</h2>
+        <h2 class="menuElement">Annonces</h2>
     </div>
     <div class="menuButton">
         <button id="deconnexion">Déconnexion</button>
@@ -48,19 +45,21 @@
   <main>
     <h1 class="titre">Réinitialisez votre mot de passe</h1>
     <div class="mdpContainer">
-        <div class="mdpInput">
-            <label for="email">Email*</label>
-            <input type="text" id="email" placeholder="Email">
-        </div>
-        <div class="mdpInput">
-            <label for="mdp">Nouveau mot de passe*</label>
-            <input type="text" id="mdp" placeholder="Mot de passe">
-        </div>
-        <div class="mdpInput">
-            <label for="mdpConfirmation">Confirmer nouveau mot de passe*</label>
-            <input type='text' id="mdpConfirmation" placeholder="Confirmer mot de passe">
-        </div>
-        <button id="mdpButton">Réinitialiser le mot de passe</button>
+        <form action="/inscription" method="PATCH" id="new-password-form">
+            <div class="mdpInput" id="emailInput">
+                <label for="email">Email*</label>
+                <input type="text" id="email" placeholder="Email">
+            </div>
+            <div class="mdpInput" id="mdpDiv">
+                <label for="mdp">Nouveau mot de passe*</label>
+                <input type="password" id="mdp" placeholder="Mot de passe">
+            </div>
+            <div class="mdpInput" id="confirmationDiv">
+                <label for="mdpConfirmation">Confirmer nouveau mot de passe*</label>
+                <input type='password' id="mdpConfirmation" placeholder="Confirmer mot de passe">
+            </div>
+            <button type="submit" id="mdpButton">Réinitialiser le mot de passe</button>
+        </form>
     </div>
     <script type="text/javascript" src="mdp.js"></script>
   </main>

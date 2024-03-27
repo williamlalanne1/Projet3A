@@ -31,9 +31,6 @@
           <h2 class="menuElement">Mes Favoris</h2>
       </div>
       <div class="elementDiv">
-          <h2 class="menuElement">Conversations</h2>
-      </div>
-      <div class="elementDiv">
           <h2 id="boutonAnnonce" class="menuElement">Annonces</h2>
       </div>
       <div class="menuButton">
@@ -45,9 +42,12 @@
 <main>
     <div class="Container">
         <div id="annonceContainer" class="annoncesContainer"></div>
-        <div id="profilContainer" class="profilContainer"></div>
+        <div id="userInformation">
+            <div id="profilContainer" class="profilContainer"></div>
+            <div id="map"></div>
+        </div>
     </div>
-    <div id="map"></div>
+    
     <script type="text/javascript" src="Annonce.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi7sL4NCI99GcnDD8fXK6X6Qpx-xSRAmM&callback=initMap&libraries=&v=weekly&loading=async" async defer></script>
 </main>

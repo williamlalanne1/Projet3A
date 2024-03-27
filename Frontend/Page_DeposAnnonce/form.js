@@ -12,6 +12,12 @@ const file = document.getElementById("file");
 
 const annoncesForm = document.getElementById("annoncesForm");
 
+const boutonAnnonce = document.getElementById("boutonAnnonce");
+
+const mesAnnonces = document.getElementById('mesAnnonces');
+
+const monProfil = document.getElementById("monProfil");
+
 const menuLogo = document.getElementById("menuLogo");
 const cmLogo = document.getElementById("logo");
 const popupMenu = document.getElementById("popupMenu");
@@ -35,6 +41,22 @@ menuLogo.addEventListener("click", () => {
     }
 
 });
+
+boutonAnnonce.addEventListener("click", () => {
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';
+});
+
+monProfil.addEventListener('click', () => {
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Profil/Profil.html';
+})
+
+mesAnnonces.addEventListener("click", () => {
+    window.location.href = 'http://127.0.0.1:5501/Frontend/Page_MesAnnonces/MesAnnonces.html';
+});
+
+mesFavoris.addEventListener("click", () => {
+    window.location.href = 'http://127.0.0.1:5501/Frontend/Page_Favoris/MesFavoris.html';
+})
 
 titre.addEventListener("blur", ($event) => {
     if ($event.target.value==="") {
@@ -149,6 +171,7 @@ annoncesForm.addEventListener("submit", async (event) => {
         }
 
         const responseData = await createAnnounceResponse.json();
+        alert("Ton annonce a été créée !")
 
         // Rediriger l'utilisateur vers une autre page ou effectuer d'autres actions après la création de l'annonce
         window.location.href = 'http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';
@@ -160,6 +183,19 @@ annoncesForm.addEventListener("submit", async (event) => {
 
 
 
+
+monProfil.addEventListener("click", () => {
+    console.log(monProfil);
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Profil/Profil.html';
+});
+
+boutonAnnonce.addEventListener("click", () => {
+    window.location.href='http://127.0.0.1:5501/Frontend/Page_Annonces/Annonces.html';
+});
+
+mesAnnonces.addEventListener("click", () => {
+    window.location.href = 'http://127.0.0.1:5501/Frontend/Page_MesAnnonces/MesAnnonces.html';
+});
 
 
 

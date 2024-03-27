@@ -54,11 +54,11 @@
     </div>
 
 
-    <div id="inscriptionPopup">
+    <div id="inscriptionPopup" style="overflow-y:scroll">
 
         <div id=popupOverlay2></div>
 
-        <div id="inscriptionPopupContent">
+        <div id="inscriptionPopupContent" style="overflow-y:scroll">
 
             <div>
                 <h1>S'inscrire</h1>
@@ -70,8 +70,13 @@
                 </div>
 
                 <div class="inscriptionPopupElement">
-                    <label class="inscriptionLabel "for="nom">Nom*</label>
-                    <input class="inscriptionInput" id="nom" type:="text" placeholder="Nom">
+                    <label class="inscriptionLabel" for="nom">Nom*</label>
+                    <input class="inscriptionInput" id="nom" type="text" placeholder="Nom">
+                </div>
+
+                <div class="inscriptionPopupElement">
+                    <label class="inscriptionLabel" for="facebook">Facebook*</label>
+                    <input class="inscriptionInput" id="facebook" type="link" placeholder="Lien profil facebook">
                 </div>
 
                 <div class="inscriptionPopupElement" id="emailInput">
@@ -104,6 +109,10 @@
                 <a id="connectLink">Vous avez déjà un compte ? Connectez-vous</a>
             </form>
         </div>
+    </div>
+
+    <div id="inscriptionSucces" class="inscription-succes">
+        <h2 class="inscriptionSuccesMessage">Tu es bien inscrit sur Centrale M'Aide ! Tu seras redirigé vers la page d'accueil pour te connecter. </h2>
     </div>
 </header>
 

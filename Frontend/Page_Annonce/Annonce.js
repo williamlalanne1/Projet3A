@@ -112,14 +112,12 @@ fetch(`http://localhost:3000/annonce/${id}`, {
         <img src="../../Backend/${annonce.image}" alt="Image de l'annonce" class="imageAnnonce">
         <h2 class="titreAnnonce">${annonce.titre}</h2>
         <p class="descriptif"> Descriptif : ${annonce.descriptif}</h2>
-        <p class="deposeur">L'annonce a été déposée par : ${annonce.email_utilisateur}</h2>
-        <p class="debutAnnonce">Du :${date_debut}</p>
-        <p class="finAnnonce">Au : ${date_fin}</p>
+        <p class="debutAnnonce">Du : ${ date_debut  } Au : ${ date_fin}</p>
     `;
     parentElement.appendChild(div);
 })
 
-fetch('http://localhost:3000/profil', {
+fetch(`http://localhost:3000/annonce/${id}/profil`, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',
@@ -134,21 +132,25 @@ fetch('http://localhost:3000/profil', {
     return response.json();
 })
 .then(data => {
-    const profil = data.profil;
-    const email = profil.email;
-    const prenom = profil.prenom;
-    const nom = profil.nom;
-    const adresse = profil.adresse;
+    const deposeurProfil = data.profil;
+    const email = deposeurProfil.email;
+    const prenom = deposeurProfil.prenom;
+    const facebook = deposeurProfil.facebook;
+    const adresse = deposeurProfil.adresse;
     const div = document.getElementById('profilContainer');
     
              
     div.innerHTML = `
         <div class="imageContainer">
-            <img src="../../Backend/${profil.image}" alt="Image de l'annonce" class="profilImage">
+            <img src="../../Backend/${deposeurProfil.image}" alt="Image de l'annonce" class="profilImage">
         </div>
         <div class="informationsContainer">
-            <h2>Annonce déposée par : ${prenom}</h2>
+            <h2 class="annonceDeposeur">Annonce déposée par : ${prenom}</h2>
             <p> Email : ${email}</p>
+            <div id = "facebookDiv">
+                <p> Facebook : </p>
+                <a href="${facebook}"><img src="../Images/facebook-logo.png"  style="width:75px;height:42px;"></a>
+            </div>
             <p> Adresse : ${adresse}</p>
         </div>
         `;
@@ -207,6 +209,5 @@ function initMap() {
                 console.error('Erreur de géocodage:', status);
             }
         });
-    })
-    
-}
+    })    
+};

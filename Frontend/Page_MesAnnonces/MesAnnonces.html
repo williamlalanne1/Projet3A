@@ -27,11 +27,8 @@
       <div class="elementDiv">
           <h2 class="menuElement">Mes Annonces</h2>
       </div>
-      <div class="elementDiv">
+      <div class="elementDiv" id="mesFavoris">
           <h2 class="menuElement">Mes Favoris</h2>
-      </div>
-      <div class="elementDiv">
-          <h2 class="menuElement">Conversations</h2>
       </div>
       <div class="elementDiv">
           <h2 id="boutonAnnonce" class="menuElement">Annonces</h2>
@@ -44,9 +41,52 @@
 
 <main>
     <h1>Mes Annonces</h1>
-    <div id="annoncesContainer" class="annoncesContainer">
+    <div id="annoncesContainer" class="annoncesContainer"></div>
 
+    <div id="modif-annonce-popup">
+
+        <div id=popupOverlay></div>
+
+            <div id="modif-annonce-popup-content">
+
+                <form id="modificationForm" action="/annonce" method="PATCH">
+                    <h1>Modifiez l'annonce</h1>
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="titre">Titre*</label>
+                        <input class="modificationInput" id="titre" type="text" placeholder="Titre">
+                    </div>
+
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel "for="descriptif">Descriptif*</label>
+                        <input class="modificationInput" id="descriptif" type="text" placeholder="Nom">
+                    </div>
+
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="adresse">Adresse*</label>
+                        <input class="modificationInput" id="adresse" type="text" placeholder="Adresse">
+                    </div>
+
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="debut">Date de début de l'annonce*</label>
+                        <input class="modificationInput" id="debut" type="date" placeholder="Adresse">
+                    </div>
+
+                    <div class="modificationPopupElement">
+                        <label class="modificationLabel" for="fin">Date de fin de l'annonce*</label>
+                        <input class="modificationInput" id="fin" type="date" placeholder="Adresse">
+                    </div>
+
+                    <div class="modificationPopupElementPhoto">
+                        <label class="modifitionLabel" for="image">Image de l'annonce</label>
+                        <input class="modificationInput" id="image" type="file" placeholder="Photo de profil">
+                    </div>
+
+                    <button type="submit" id="modificationButton" class="modificationButton">Modifier les infos</button>
+                    
+                </form>
+            </div>
     </div>
+
     <script type="text/javascript" src="MesAnnonces.js"></script>
 </main>
 </body>

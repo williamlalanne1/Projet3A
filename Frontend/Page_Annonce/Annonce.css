@@ -3,6 +3,9 @@
     flex-direction: row;
     width: 100%;
     height: 70%;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .annoncesContainer {
@@ -10,48 +13,96 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    margin-top: 10%;
+    width: 50%;
+    margin-left: 12%;
+}
+
+.titreAnnonce {
+    font-size: 150%;
+    margin-top: 8%;
+}
+
+.descriptif {
+    margin-top: 8%;
+    width: 172.7%;
+    color: #565353;
+    font-weight: 100;
+    font-size: 126%;
+}
+
+.debutAnnonce {
+    margin-top: 8%;
+    font-size: 120%;
 }
 
 .imageAnnonce {
-    height: 300px;
-    width: 300px;
+    margin-top: 5%;
+    height: 370px;
+    width: 370px;
+    border-radius: 10px;
+}
+
+#userInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    gap: 5%;
+    height: 100%;
+    margin-bottom: 15%;
 }
 
 .profilContainer {
+    align-self: flex-start;
+    margin-right: 10%;
     display: flex;
     flex-direction: row;
-    box-shadow: 3px 3px 5px lightgrey;
-    position: absolute;
-    top: 15%;
-    right: 7%;
+    border-radius: 15px;
+    border: solid rgba(0, 0, 0, 0.4) thin;
     justify-content: center;
     align-items: center;
-    height: 30%;
-    width: 28%;
+    height: 10%;
+    width: 72%;
+    background-color: #F9F8F3;
 }
 
 .informationsContainer {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5%;
-    margin-top: 5%;
     margin-left: 5%;
     width: 100%;
 }
+
 
 .imageContainer {
     width: 30%;
 }
 
 .profilImage {
-    width: 100%;
+    margin-left: 20%;
+    width: 90%;
     border-radius: 100%;
 }
 
+.annonceDeposeur {
+    font-size: 110%;
+}
+
+p {
+    font-size: 90%;
+}
 
 #map {
-    width: 30%;
-    height: 400px; /* ou une autre hauteur appropriée */
+    width: 72%;
+    height: 200px;
+    margin-top: 5%;
+}
+
+#facebookDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 57%;
 }
